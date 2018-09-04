@@ -9,6 +9,7 @@ public class BuildingBehavior : MonoBehaviour {
 	[SerializeField]
 	private int maxBuildLevel =5;
 
+	//serialize all prefabs for the buildings here
 	[SerializeField]
 	private GameObject[] buildings; 
 
@@ -30,6 +31,7 @@ public class BuildingBehavior : MonoBehaviour {
 		GameEventManager.OnDestroyBuilding -= Downgrade;
 	}
 
+	//Destroys old building and loads better one
 	private void Upgrade()
 	{
 		buildings[buildingLevel].SetActive(false);
@@ -41,16 +43,19 @@ public class BuildingBehavior : MonoBehaviour {
 		buildings[buildingLevel].SetActive(true);
 	}
 
+	//Destroys old building and loads old one
 	private void Downgrade()
 	{
 		buildings[buildingLevel].SetActive(false);
 		buildingLevel--;
-		if (buildingLevel < 0)
-		{
+		if (buildingLevel < 0) {
 			//Eventtrigger Gameover
 
 		}
-		buildings[buildingLevel].SetActive(true);
+		else
+		{
+			buildings [buildingLevel].SetActive (true);
+		}
 	}
 		
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Timers;
 
 public enum Resource {WOOD, COIN, POTION, MEGAPOTION, BERRY, MEAT, TREASURE};
-public enum Achievment {WOODSMAN, BANKER, HULK, BUFFER, HEALER, KILLER, TREASUREHUNTER};
+public enum Achievment {NONE, WOODSMAN, BANKER, HULK, BUFFER, HEALER, KILLER, TREASUREHUNTER};
 
 public class GameEventManager : MonoBehaviour {
 
@@ -39,7 +39,7 @@ public class GameEventManager : MonoBehaviour {
 	//Hud and trophy gallery is intrested in this
 	public delegate void AchievmentUp(Achievment pAchievment, int pAchievmentLevel);
 	public static event AchievmentUp OnAchievementUp;
-	public static Achievment upgradedAchievment;
+	public static Achievment upgradedAchievment = Achievment.NONE;
 	public static int upgradedAchievmentLevel;
 
 	//player and interacted npc are intrested in this
@@ -81,9 +81,9 @@ public class GameEventManager : MonoBehaviour {
 	{
 		if(OnAchievementUp != null)
 		{
-			if (upgradedAchievment != null) {
-				upgradedAchievment = null;
+			if (upgradedAchievment != Achievment.NONE) {
 				OnAchievementUp (upgradedAchievment, upgradedAchievmentLevel);
+				upgradedAchievment = Achievment.NONE;
 			}
 		}
 	}

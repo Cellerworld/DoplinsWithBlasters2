@@ -68,7 +68,7 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.WOOD)
 		{
 			gatheredWood += pAmount;
-			if (gatheredWood => _woodGoal)
+			if (gatheredWood >= _woodGoal)
 			{
 				_woodGoal *= 2;
 				//Set Trigger for Achievment up
@@ -85,7 +85,7 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.COIN)
 		{
 			gatheredCoins += pAmount;
-			if (gatheredCoins => _coinGoal)
+			if (gatheredCoins >= _coinGoal)
 			{
 				_coinGoal *= 2;
 				//Set Trigger for Achievment up
@@ -102,7 +102,7 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.TREASURE)
 		{
 			gatheredTreasures += pAmount;
-			if (gatheredTreasures => _treasureGoal)
+			if (gatheredTreasures >= _treasureGoal)
 			{
 				_treasureGoal *= 2;
 				//Set Trigger for Achievment up
@@ -119,7 +119,7 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.MEAT)
 		{
 			gatheredKills += pAmount;
-			if (gatheredKills => _killGoal)
+			if (gatheredKills >= _killGoal)
 			{
 				_killGoal *= 2;
 				//Display Achievment
