@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     private int stuffCounter;
+    private int woodCounter;
     private int goldCounter;
     public float speed = 20f;
     private Rigidbody rb;
     public Text text;
+    public Text woodText;
     public Text goldText;
     private Animator anim;
     private Sword sword;
@@ -74,6 +76,14 @@ public class Player : MonoBehaviour {
             Destroy(other.gameObject);
             stuffCounter++;
             text.text = "Stuff: " + stuffCounter;
+            return;
+        }
+        if (other.CompareTag("Wood") && other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f)
+        {
+            other.enabled = false;
+            Destroy(other.gameObject);
+            woodCounter++;
+            woodText.text = "Wood: " + woodCounter;
             return;
         }
     }
