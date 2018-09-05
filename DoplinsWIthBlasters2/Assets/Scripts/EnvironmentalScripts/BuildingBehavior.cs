@@ -32,7 +32,7 @@ public class BuildingBehavior : MonoBehaviour {
 	}
 
 	//Destroys old building and loads better one
-	private void Upgrade()
+	private void Upgrade(Resource pResource, int pAmount)
 	{
 		buildings[buildingLevel].SetActive(false);
 		buildingLevel++;

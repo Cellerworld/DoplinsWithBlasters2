@@ -10,12 +10,15 @@ public class Granny : MonoBehaviour {
     private bool playerIsNearby;
     public Player player;
     public GameObject upgrade;
+	[SerializeField]
+	private Inventory _playerinventory;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsNearby && player.GetGoldCount() >= goldNeeded)
+		if (Input.GetKeyDown(KeyCode.E) && playerIsNearby && _playerinventory.CoinAmount >= goldNeeded)
         {
-            player.RemoveGold(goldNeeded);
+			GameEventManager.UpgradeCost = goldNeeded;
+            //player.RemoveGold(goldNeeded);
             UpgradeTown();
         }
     }

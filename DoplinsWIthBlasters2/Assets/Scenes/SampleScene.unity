@@ -477,7 +477,9 @@ GameObject:
   - component: {fileID: 336181399}
   - component: {fileID: 336181405}
   - component: {fileID: 336181403}
+  - component: {fileID: 336181407}
   - component: {fileID: 336181404}
+  - component: {fileID: 336181406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -582,9 +584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
-  text: {fileID: 1243475617}
-  woodText: {fileID: 1127455977}
-  goldText: {fileID: 785846782}
 --- !u!65 &336181405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -597,6 +596,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.2, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &336181406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336181398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d770d62ecb4ff6243980011d640713bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &336181407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336181398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f0843e99f65a84b8548d2e20e5579f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &340724407
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +847,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 336181398}
+--- !u!1 &543977905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543977907}
+  - component: {fileID: 543977906}
+  m_Layer: 0
+  m_Name: GameEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &543977906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 543977905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c68c50195a64e4287c5c2b6bf0dd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &543977907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 543977905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.00434, y: -4.329269, z: 7.72385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550656484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1190,8 @@ MonoBehaviour:
   range: 3
   textbox: {fileID: 1188731183}
   player: {fileID: 336181404}
+  _playerInventory: {fileID: 336181406}
+  _requiredResource: 0
 --- !u!135 &622782974
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1153,8 +1216,9 @@ GameObject:
   - component: {fileID: 672874082}
   - component: {fileID: 672874081}
   - component: {fileID: 672874085}
+  - component: {fileID: 672874086}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Hud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1230,6 +1294,7 @@ RectTransform:
   - {fileID: 1243475616}
   - {fileID: 785846781}
   - {fileID: 1127455976}
+  - {fileID: 764745077}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1260,6 +1325,21 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &672874086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672874080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a9fab83cdcd2e41890a43fcb2ebbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinText: {fileID: 1243475617}
+  _woodText: {fileID: 785846782}
+  _meatText: {fileID: 1127455977}
+  _treasureText: {fileID: 764745078}
 --- !u!1 &675193498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1448,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &728199554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 728199549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b196928ccc71c9438f34d279f153640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &746411112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1571,81 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddf722a278057a64ba1aa7f188fe5bc5, type: 3}
   m_IsPrefabAsset: 0
+--- !u!1 &764745076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764745077}
+  - component: {fileID: 764745079}
+  - component: {fileID: 764745078}
+  m_Layer: 5
+  m_Name: Treasure
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &764745077
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764745076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 672874084}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 622.125, y: -15}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &764745078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764745076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 26
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Treasure: 0'
+--- !u!222 &764745079
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764745076}
+  m_CullTransparentMesh: 0
 --- !u!1 &777143883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1840,7 @@ GameObject:
   - component: {fileID: 785846783}
   - component: {fileID: 785846782}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1695,7 +1861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -15}
+  m_AnchoredPosition: {x: 266.625, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785846782
@@ -1730,7 +1896,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Gold: 0'
+  m_Text: 'Wood: 0'
 --- !u!222 &785846783
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1998,6 +2164,8 @@ MonoBehaviour:
   range: 3
   textbox: {fileID: 1188731183}
   player: {fileID: 336181404}
+  _playerInventory: {fileID: 336181406}
+  _requiredResource: 6
 --- !u!135 &913464739
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2196,7 +2364,7 @@ GameObject:
   - component: {fileID: 1127455978}
   - component: {fileID: 1127455977}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Meat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,7 +2385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -15}
+  m_AnchoredPosition: {x: 444.375, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127455977
@@ -2252,7 +2420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Wood: 0'
+  m_Text: 'Meat: 0'
 --- !u!222 &1127455978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2698,7 +2866,7 @@ GameObject:
   - component: {fileID: 1243475618}
   - component: {fileID: 1243475617}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2719,7 +2887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -15}
+  m_AnchoredPosition: {x: 88.875, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243475617
@@ -2754,7 +2922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Stuff: 0'
+  m_Text: 'Coins: 0'
 --- !u!222 &1243475618
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4078,6 +4246,7 @@ MonoBehaviour:
   textbox: {fileID: 1188731183}
   player: {fileID: 336181404}
   upgrade: {fileID: 330215722}
+  _playerinventory: {fileID: 336181406}
 --- !u!135 &1986807390
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4430,6 +4599,8 @@ MonoBehaviour:
   range: 3
   textbox: {fileID: 1188731183}
   player: {fileID: 336181404}
+  _playerInventory: {fileID: 336181406}
+  _requiredResource: 1
 --- !u!135 &2144508013
 SphereCollider:
   m_ObjectHideFlags: 0
