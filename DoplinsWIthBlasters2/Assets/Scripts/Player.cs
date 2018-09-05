@@ -16,29 +16,37 @@ public class Player : MonoBehaviour {
     private Animator anim;
     private Sword sword;
 
+	private Animator _animator;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         sword = GetComponentInChildren<Sword>();
+		_animator = this.GetComponentInChildren<Animator> ();
+		//_animator.Play ("idl");
     }
 
     void Update () {
         Vector3 vel = new Vector3();
         if (Input.GetKey(KeyCode.W))
         {
+			_animator.SetTrigger ("move");
             vel.z = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
+			_animator.SetTrigger ("move");
             vel.z = -1;
         }
         if (Input.GetKey(KeyCode.A))
         {
+			_animator.SetTrigger ("move");
             vel.x = -1;
         }
         if (Input.GetKey(KeyCode.D))
         {
+			_animator.SetTrigger ("move");
             vel.x = 1;
         }
         if(Input.GetKeyDown(KeyCode.Space))
@@ -60,12 +68,13 @@ public class Player : MonoBehaviour {
     private void Attack()
     {
         sword.isAttacking = true;
-        anim.Play("Attack");
+		_animator.SetTrigger("hit");
     }
 
     private void EndAttack()
     {
         sword.isAttacking = false;
+		_animator.SetTrigger ("idle");
     }
 
     private void OnTriggerEnter(Collider other)
