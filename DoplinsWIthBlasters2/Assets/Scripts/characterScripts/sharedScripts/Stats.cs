@@ -21,8 +21,6 @@ public class Stats : MonoBehaviour {
 	[SerializeField]
 	private int _currentHealthPoints;
 
-
-
 	[SerializeField]
 	private int _movementSpeed;
 
