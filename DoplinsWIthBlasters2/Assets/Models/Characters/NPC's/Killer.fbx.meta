@@ -1,29 +1,73 @@
 fileFormatVersion: 2
-guid: d2ed07b61d4bda8478b6799f5d5d71aa
+guid: ef8e92d3d62eda64587d688d54da6f6a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Tree_1
-    100002: Tree_2
-    100004: Tree_3
-    100006: //RootNode
-    400000: Tree_1
-    400002: Tree_2
-    400004: Tree_3
-    400006: //RootNode
-    2100000: Leafs_1
-    2100002: Trunk
-    2100004: Leafs_2
-    2100006: Leafs_3
-    2300000: Tree_1
-    2300002: Tree_2
-    2300004: Tree_3
-    3300000: Tree_1
-    3300002: Tree_2
-    3300004: Tree_3
-    4300000: Tree_2
-    4300002: Tree_1
-    4300004: Tree_3
+    100000: Brows
+    100002: Cubo
+    100004: Eyes
+    100006: Helmet
+    100008: Jello
+    100010: //RootNode
+    100012: Mouth
+    100014: Spike_1
+    100016: Spike_2
+    100018: Spike_3
+    100020: Spike_4
+    100022: Spikes
+    100024: Stache
+    400000: Brows
+    400002: Cubo
+    400004: Eyes
+    400006: Helmet
+    400008: Jello
+    400010: //RootNode
+    400012: Mouth
+    400014: Spike_1
+    400016: Spike_2
+    400018: Spike_3
+    400020: Spike_4
+    400022: Spikes
+    400024: Stache
+    2100000: Jello_Mat
+    2100002: Cubo_Mat
+    2100004: Brown
+    2100006: Eye_Blacks
+    2100008: Eye_Whites
+    2100010: Hair
+    2300000: Brows
+    2300002: Cubo
+    2300004: Eyes
+    2300006: Helmet
+    2300008: Jello
+    2300010: Mouth
+    2300012: Spike_1
+    2300014: Spike_2
+    2300016: Spike_3
+    2300018: Spike_4
+    2300020: Stache
+    3300000: Brows
+    3300002: Cubo
+    3300004: Eyes
+    3300006: Helmet
+    3300008: Jello
+    3300010: Mouth
+    3300012: Spike_1
+    3300014: Spike_2
+    3300016: Spike_3
+    3300018: Spike_4
+    3300020: Stache
+    4300000: Jello
+    4300002: Cubo
+    4300004: Stache
+    4300006: Mouth
+    4300008: Brows
+    4300010: Eyes
+    4300012: Helmet
+    4300014: Spike_4
+    4300016: Spike_3
+    4300018: Spike_2
+    4300020: Spike_1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -55,7 +99,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 40
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

@@ -1,29 +1,56 @@
 fileFormatVersion: 2
-guid: d2ed07b61d4bda8478b6799f5d5d71aa
+guid: 9a75d24e15c1eea4b94e2450d8890601
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Tree_1
-    100002: Tree_2
-    100004: Tree_3
-    100006: //RootNode
-    400000: Tree_1
-    400002: Tree_2
-    400004: Tree_3
-    400006: //RootNode
-    2100000: Leafs_1
-    2100002: Trunk
-    2100004: Leafs_2
-    2100006: Leafs_3
-    2300000: Tree_1
-    2300002: Tree_2
-    2300004: Tree_3
-    3300000: Tree_1
-    3300002: Tree_2
-    3300004: Tree_3
-    4300000: Tree_2
-    4300002: Tree_1
-    4300004: Tree_3
+    100000: Belt
+    100002: Buckle_1
+    100004: Buckle_2
+    100006: Cubo
+    100008: //RootNode
+    100010: Eyes
+    100012: Hat
+    100014: Jello
+    100016: Patch
+    400000: Belt
+    400002: Buckle_1
+    400004: Buckle_2
+    400006: Cubo
+    400008: //RootNode
+    400010: Eyes
+    400012: Hat
+    400014: Jello
+    400016: Patch
+    2100000: Brown
+    2100002: Eye_Blacks
+    2100004: Jello_Mat
+    2100006: Cubo_Mat
+    2100008: Eye_Whites
+    2100010: lambert1
+    2300000: Belt
+    2300002: Buckle_1
+    2300004: Buckle_2
+    2300006: Cubo
+    2300008: Eyes
+    2300010: Hat
+    2300012: Jello
+    2300014: Patch
+    3300000: Belt
+    3300002: Buckle_1
+    3300004: Buckle_2
+    3300006: Cubo
+    3300008: Eyes
+    3300010: Hat
+    3300012: Jello
+    3300014: Patch
+    4300000: Hat
+    4300002: Jello
+    4300004: Cubo
+    4300006: Eyes
+    4300008: Patch
+    4300010: Belt
+    4300012: Buckle_2
+    4300014: Buckle_1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -55,7 +82,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 40
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

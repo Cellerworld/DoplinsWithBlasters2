@@ -1,29 +1,56 @@
 fileFormatVersion: 2
-guid: d2ed07b61d4bda8478b6799f5d5d71aa
+guid: 55bcf14e90f958f40aaa5ca5d9a446e1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Tree_1
-    100002: Tree_2
-    100004: Tree_3
-    100006: //RootNode
-    400000: Tree_1
-    400002: Tree_2
-    400004: Tree_3
-    400006: //RootNode
-    2100000: Leafs_1
-    2100002: Trunk
-    2100004: Leafs_2
-    2100006: Leafs_3
-    2300000: Tree_1
-    2300002: Tree_2
-    2300004: Tree_3
-    3300000: Tree_1
-    3300002: Tree_2
-    3300004: Tree_3
-    4300000: Tree_2
-    4300002: Tree_1
-    4300004: Tree_3
+    100000: Blade
+    100002: //RootNode
+    100004: Cubo
+    100006: Eyes
+    100008: Eyes1
+    100010: Handle
+    100012: Hat
+    100014: Horns
+    100016: Jello
+    400000: Blade
+    400002: //RootNode
+    400004: Cubo
+    400006: Eyes
+    400008: Eyes1
+    400010: Handle
+    400012: Hat
+    400014: Horns
+    400016: Jello
+    2100000: Jello_Mat
+    2100002: Cubo_Mat
+    2100004: Eye_Whites
+    2100006: Eye_Blacks
+    2100008: Brown
+    2100010: lambert1
+    2300000: Blade
+    2300002: Cubo
+    2300004: Eyes
+    2300006: Eyes1
+    2300008: Handle
+    2300010: Hat
+    2300012: Horns
+    2300014: Jello
+    3300000: Blade
+    3300002: Cubo
+    3300004: Eyes
+    3300006: Eyes1
+    3300008: Handle
+    3300010: Hat
+    3300012: Horns
+    3300014: Jello
+    4300000: Jello
+    4300002: Cubo
+    4300004: Eyes
+    4300006: Eyes1
+    4300008: Hat
+    4300010: Horns
+    4300012: Blade
+    4300014: Handle
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -55,7 +82,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 40
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
