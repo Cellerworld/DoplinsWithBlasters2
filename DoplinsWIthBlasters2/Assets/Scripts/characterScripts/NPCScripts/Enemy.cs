@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 
+    public bool isSpawned;
+
     private int waypointIndex = 1;
-    public float speed;
     public GameObject[] waypoints;
 
     public float dropPercentage;
@@ -19,13 +20,28 @@ public class Enemy : MonoBehaviour {
 
     private void Start()
     {
+        isSpawned = true;
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = waypoints[0].transform.position;
+        if (isSpawned == false)
+        {
+            agent.destination = waypoints[0].transform.position;
+        }
     }
 
     private void Update()
     {
-        CheckForGoal();
+        if (isSpawned == false)
+        {
+            //CheckForGoal();
+        }
+        else
+        {
+            if(Vector3.Distance(transform.position, agent.destination) < 2/*magic number that needs to be the radius of the target + a part of the weapon*/)
+            {
+                //attack target (attack script is using input --> cant use it for enemy
+                Debug.Log("CHARGEEEEE!");
+            }
+        }
         RaycastHit hit;
         if(Physics.SphereCast(transform.position + new Vector3(0.5f, 0.5f, 0.5f), 0.5f, transform.forward, out hit, 10))
         {

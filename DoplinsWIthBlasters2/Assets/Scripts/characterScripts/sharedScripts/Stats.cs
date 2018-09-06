@@ -23,6 +23,13 @@ public class Stats : MonoBehaviour {
 
 	[SerializeField]
 	private int _movementSpeed;
+    public int Speed
+    {
+        get
+        {
+            return _movementSpeed;
+        }
+    }
 
 
 	// Use this for initialization
