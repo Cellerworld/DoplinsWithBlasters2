@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Collting : MonoBehaviour {
 
+	[SerializeField]
+	private Inventory _playerInventory;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,11 +21,18 @@ public class Collting : MonoBehaviour {
 			GameEventManager.CollectedResource = Resource.MEAT;
 			return;
 		}
-		if (other.CompareTag("Wood") && other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f)
+		if (other.CompareTag("Wood") && other.GetComponent<Rigidbody>().velocity.magnitude < 1f)
 		{
 			other.enabled = false;
 			Destroy(other.gameObject);
 			GameEventManager.CollectedResource = Resource.WOOD;
+			return;
+		}
+		if (other.CompareTag ("Treasure") && _playerInventory.Treasure < 1)
+		{
+			other.enabled = false;
+			Destroy (other.gameObject);
+			GameEventManager.CollectedResource = Resource.TREASURE;
 			return;
 		}
 	}
