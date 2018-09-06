@@ -112,7 +112,6 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-<<<<<<< HEAD
   m_NavMeshData: {fileID: 23800000, guid: 407bc3be0b6e1ad4d9c64ad63b16818e, type: 2}
 --- !u!1001 &112844692
 Prefab:
@@ -174,9 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeBtwAttacks: 0
   _attackRange: 3.88
-=======
-  m_NavMeshData: {fileID: 23800000, guid: 9939faee5f73a494e8f79cdea579aebf, type: 2}
->>>>>>> 2971930c989058748910b64f123be03374a748e8
 --- !u!1 &182525728
 GameObject:
   m_ObjectHideFlags: 0
