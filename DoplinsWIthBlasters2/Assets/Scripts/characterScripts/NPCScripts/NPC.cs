@@ -92,7 +92,7 @@ public class NPC : MonoBehaviour {
         if(other.CompareTag("Player"))
         {
             Vector3 pos = transform.position;
-            pos.y = 2;
+            pos.y = 1;
             textbox.transform.position = pos;
             Text text = textbox.GetComponentInChildren<Text>();
             text.text = "Give me " + stuffNeeded + " stuff.";
