@@ -5,26 +5,28 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+	//transfer to Inventory/ complete for all resources
     private int stuffCounter;
     private int woodCounter;
     private int goldCounter;
+
+
+	//move to stats maybe
     public float speed = 20f;
     private Rigidbody rb;
-    public Text text;
-    public Text woodText;
-    public Text goldText;
-    private Animator anim;
-    private Sword sword;
+	//move away to hud
+//    public Text text;
+//    public Text woodText;
+//    public Text goldText;
+   // private Sword sword;
 
 	private Animator _animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
-        sword = GetComponentInChildren<Sword>();
+        //sword = GetComponentInChildren<Sword>();
 		_animator = this.GetComponentInChildren<Animator> ();
-		//_animator.Play ("idl");
     }
 
     void Update () {
@@ -49,10 +51,7 @@ public class Player : MonoBehaviour {
 			_animator.SetTrigger ("move");
             vel.x = 1;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Attack();
-        }
+        
         if (vel.x != 0 || vel.z != 0)
         {
             vel.Normalize();
@@ -65,59 +64,55 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void Attack()
-    {
-        sword.isAttacking = true;
-		_animator.SetTrigger("hit");
-    }
 
-    private void EndAttack()
-    {
-        sword.isAttacking = false;
-		_animator.SetTrigger ("idle");
-    }
+	//move to attack script
+  
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Collectable"))
-        {
-            other.enabled = false;
-            Destroy(other.gameObject);
-            stuffCounter++;
-            text.text = "Stuff: " + stuffCounter;
-            return;
-        }
-        if (other.CompareTag("Wood") && other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f)
-        {
-            other.enabled = false;
-            Destroy(other.gameObject);
-            woodCounter++;
-            woodText.text = "Wood: " + woodCounter;
-            return;
-        }
-    }
+	//move to collect and hud script
+//    private void OnTriggerEnter(Collider other)
+//    {
+//        if(other.CompareTag("Collectable"))
+//        {
+//            other.enabled = false;
+//            Destroy(other.gameObject);
+//            stuffCounter++;
+//            //text.text = "Stuff: " + stuffCounter;
+//            return;
+//        }
+//        if (other.CompareTag("Wood") && other.GetComponent<Rigidbody>().velocity.magnitude < 0.5f)
+//        {
+//            other.enabled = false;
+//            Destroy(other.gameObject);
+//            woodCounter++;
+//           // woodText.text = "Wood: " + woodCounter;
+//            return;
+//        }
+//    }
 
-    public void MakeExchange(int stuffAmount, int goldAmount)
-    {
-        stuffCounter -= stuffAmount;
-        goldCounter += goldAmount;
-        text.text = "Stuff: " + stuffCounter;
-        goldText.text = "Gold: " + goldCounter;
-    }
+	//interaction script
+//    public void MakeExchange(int stuffAmount, int goldAmount)
+//    {
+//        stuffCounter -= stuffAmount;
+//        goldCounter += goldAmount;
+////        text.text = "Stuff: " + stuffCounter;
+////        goldText.text = "Gold: " + goldCounter;
+//    }
 
-    public int GetStuffCount()
-    {
-        return stuffCounter;
-    }
+	//inventory
+//    public int GetStuffCount()
+//    {
+//        return stuffCounter;
+//    }
+//	//move to inventroy
+//    public int GetGoldCount()
+//    {
+//        return goldCounter;
+//    }
 
-    public int GetGoldCount()
-    {
-        return goldCounter;
-    }
-
-    public void RemoveGold(int amount)
-    {
-        goldCounter -= amount;
-        goldText.text = "Gold: " + goldCounter;
-    }
+	//move to inventory
+//    public void RemoveGold(int amount)
+//    {
+//        goldCounter -= amount;
+////        goldText.text = "Gold: " + goldCounter;
+//    }
 }
