@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 5fab20368a308d948ab501fc2ceceb19
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bun
+    100002: Bun_Stick
+    100004: Cane
+    100006: Chip
+    100008: Chip1
+    100010: Chip2
+    100012: Chip3
+    100014: Chip4
+    100016: Chip5
+    100018: Chip6
+    100020: Chip7
+    100022: Cookie
+    100024: Cubo
+    100026: Eyes
+    100028: Eyes1
+    100030: Glass_1
+    100032: Glass_2
+    100034: Glasses
+    100036: Granny
+    100038: //RootNode
+    100040: Hair
+    400000: Bun
+    400002: Bun_Stick
+    400004: Cane
+    400006: Chip
+    400008: Chip1
+    400010: Chip2
+    400012: Chip3
+    400014: Chip4
+    400016: Chip5
+    400018: Chip6
+    400020: Chip7
+    400022: Cookie
+    400024: Cubo
+    400026: Eyes
+    400028: Eyes1
+    400030: Glass_1
+    400032: Glass_2
+    400034: Glasses
+    400036: Granny
+    400038: //RootNode
+    400040: Hair
+    2100000: Cane_mat
+    2100002: Cookie_base
+    2100004: Chocolote_chip
+    2100006: Jello_Mat
+    2100008: Cubo_Mat
+    2100010: Gray
+    2100012: Eye_Blacks
+    2300000: Bun
+    2300002: Bun_Stick
+    2300004: Cane
+    2300006: Chip
+    2300008: Chip1
+    2300010: Chip2
+    2300012: Chip3
+    2300014: Chip4
+    2300016: Chip5
+    2300018: Chip6
+    2300020: Chip7
+    2300022: Cookie
+    2300024: Cubo
+    2300026: Eyes
+    2300028: Eyes1
+    2300030: Glass_1
+    2300032: Glass_2
+    2300034: Granny
+    2300036: Hair
+    3300000: Bun
+    3300002: Bun_Stick
+    3300004: Cane
+    3300006: Chip
+    3300008: Chip1
+    3300010: Chip2
+    3300012: Chip3
+    3300014: Chip4
+    3300016: Chip5
+    3300018: Chip6
+    3300020: Chip7
+    3300022: Cookie
+    3300024: Cubo
+    3300026: Eyes
+    3300028: Eyes1
+    3300030: Glass_1
+    3300032: Glass_2
+    3300034: Granny
+    3300036: Hair
+    4300000: Cane
+    4300002: Cookie
+    4300004: Chip7
+    4300006: Chip6
+    4300008: Chip5
+    4300010: Chip4
+    4300012: Chip3
+    4300014: Chip2
+    4300016: Chip1
+    4300018: Chip
+    4300020: Granny
+    4300022: Cubo
+    4300024: Eyes
+    4300026: Eyes1
+    4300028: Glass_2
+    4300030: Glass_1
+    4300032: Hair
+    4300034: Bun
+    4300036: Bun_Stick
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

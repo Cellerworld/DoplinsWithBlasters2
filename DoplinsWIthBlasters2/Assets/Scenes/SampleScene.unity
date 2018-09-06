@@ -4242,10 +4242,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9fff802cab65a42a101f2065519d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldNeeded: 5
+  goldNeeded: 00000000320000004b00000082000000040100003f020000e2040000b80b0000
+  woodNeeded: 0000000000000000000000000000000000000000000000000000000000000000
   textbox: {fileID: 1188731183}
   player: {fileID: 336181404}
-  upgrade: {fileID: 330215722}
+  upgrade:
+  - {fileID: 330215722}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerinventory: {fileID: 336181406}
 --- !u!135 &1986807390
 SphereCollider:
