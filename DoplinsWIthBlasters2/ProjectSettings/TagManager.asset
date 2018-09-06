@@ -9,6 +9,7 @@ TagManager:
   - Granny
   - Destructable
   - Wood
+  - Treasure
   layers:
   - Default
   - TransparentFX
