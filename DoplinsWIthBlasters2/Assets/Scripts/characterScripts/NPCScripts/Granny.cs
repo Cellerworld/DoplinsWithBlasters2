@@ -17,6 +17,13 @@ public class Granny : MonoBehaviour {
 	[SerializeField]
 	private Inventory _playerinventory;
 
+	Text text;
+
+	void Start()
+	{
+		text = textbox.GetComponentInChildren<Text> ();
+	}
+
     private void Update()
     {
 		if (Input.GetKeyDown(KeyCode.E) && playerIsNearby && _playerinventory.CoinAmount >= goldNeeded[_upgradeLevel])
@@ -30,6 +37,7 @@ public class Granny : MonoBehaviour {
     private void UpgradeTown()
     {
 		upgrade[_upgradeLevel].SetActive(true);
+		text.text = "Come back with " + goldNeeded[_upgradeLevel] + " gold.";
 		_upgradeLevel++;
     }
 
@@ -37,10 +45,9 @@ public class Granny : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            Text text = textbox.GetComponentInChildren<Text>();
-            text.text = "Come back with " + goldNeeded + " gold.";
+			text.text = "Come back with " + goldNeeded[_upgradeLevel] + " gold.";
             Vector3 pos = transform.position;
-            pos.y = 1;
+            pos.y =2;
             textbox.transform.position = pos;
             textbox.SetActive(true);
             playerIsNearby = true;
