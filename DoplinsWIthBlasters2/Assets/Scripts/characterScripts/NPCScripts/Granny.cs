@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class Granny : MonoBehaviour {
 
-    public int goldNeeded;
+	[SerializeField]
+	private int[] goldNeeded = new int[8];
+	[SerializeField]
+	private int[] woodNeeded = new int[8];
+	private int _upgradeLevel = 0;
     public GameObject textbox;
     private bool playerIsNearby;
     public Player player;
-    public GameObject upgrade;
+	public GameObject[] upgrade = new GameObject[8];
 	[SerializeField]
 	private Inventory _playerinventory;
 
     private void Update()
     {
-		if (Input.GetKeyDown(KeyCode.E) && playerIsNearby && _playerinventory.CoinAmount >= goldNeeded)
+		if (Input.GetKeyDown(KeyCode.E) && playerIsNearby && _playerinventory.CoinAmount >= goldNeeded[_upgradeLevel])
         {
-			GameEventManager.UpgradeCost = goldNeeded;
+			GameEventManager.UpgradeCost = goldNeeded[_upgradeLevel];
             //player.RemoveGold(goldNeeded);
             UpgradeTown();
         }
@@ -25,7 +29,8 @@ public class Granny : MonoBehaviour {
 
     private void UpgradeTown()
     {
-        upgrade.SetActive(true);
+		upgrade[_upgradeLevel].SetActive(true);
+		_upgradeLevel++;
     }
 
     private void OnTriggerEnter(Collider other)
