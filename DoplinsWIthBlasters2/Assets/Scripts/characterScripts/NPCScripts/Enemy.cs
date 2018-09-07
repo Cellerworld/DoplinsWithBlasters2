@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 
+    //use state machine instead!! work for friday
+    //wandering enemy (patroling through the wood)
+    //"agressive" enemy (running towards the base)
+    //both attack player on sight
+
     public bool isSpawned;
 
     private int waypointIndex = 1;
@@ -32,7 +37,7 @@ public class Enemy : MonoBehaviour {
     {
         if (isSpawned == false)
         {
-            //CheckForGoal();
+            CheckForGoal();
         }
         else
         {
