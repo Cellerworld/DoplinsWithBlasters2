@@ -39,20 +39,17 @@ GameObject:
   - component: {fileID: 4657459062359364}
   - component: {fileID: 33059283362908368}
   - component: {fileID: 23236905073585160}
-<<<<<<< HEAD
   - component: {fileID: 136003977467290168}
   - component: {fileID: 114035698705702408}
   - component: {fileID: 136361477484157370}
   - component: {fileID: 198836551706311666}
   - component: {fileID: 199381504893284026}
-=======
->>>>>>> aa1334d0bf91fd3cd64a67d1b8b00166c5910474
   m_Layer: 0
   m_Name: Tree_3
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1802866444715172
 GameObject:
@@ -190,7 +187,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427439576690898}
   m_Mesh: {fileID: 4300004, guid: d2ed07b61d4bda8478b6799f5d5d71aa, type: 3}
-<<<<<<< HEAD
 --- !u!33 &33845569784550898
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -9528,5 +9524,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
-=======
->>>>>>> aa1334d0bf91fd3cd64a67d1b8b00166c5910474
