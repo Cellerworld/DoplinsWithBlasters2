@@ -21,15 +21,12 @@ GameObject:
   - component: {fileID: 4657459062359364}
   - component: {fileID: 33059283362908368}
   - component: {fileID: 23236905073585160}
-  - component: {fileID: 136003977467290168}
-  - component: {fileID: 114035698705702408}
-  - component: {fileID: 136361477484157370}
   m_Layer: 0
   m_Name: Tree_3
-  m_TagString: Destructable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4657459062359364
 Transform:
@@ -87,43 +84,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427439576690898}
   m_Mesh: {fileID: 4300004, guid: d2ed07b61d4bda8478b6799f5d5d71aa, type: 3}
---- !u!114 &114035698705702408
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1427439576690898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bec254abbfc69e4591d523af06b78cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minWood: 3
-  maxWood: 7
-  woodDrop: {fileID: 1231184830587054, guid: 7f106bf1e6d5184499bc20d57470b75e, type: 2}
---- !u!136 &136003977467290168
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1427439576690898}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.9
-  m_Height: 4.640387
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.3999999, z: 0}
---- !u!136 &136361477484157370
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1427439576690898}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.9
-  m_Height: 4.640387
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.3999999, z: 0}

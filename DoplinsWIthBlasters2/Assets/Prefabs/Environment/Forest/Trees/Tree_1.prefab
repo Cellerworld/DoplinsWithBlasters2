@@ -21,15 +21,12 @@ GameObject:
   - component: {fileID: 4505366642292702}
   - component: {fileID: 33306854735552192}
   - component: {fileID: 23521716862162992}
-  - component: {fileID: 136152630000010520}
-  - component: {fileID: 114924097176024604}
-  - component: {fileID: 136276017347553810}
   m_Layer: 0
   m_Name: Tree_1
-  m_TagString: Destructable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4505366642292702
 Transform:
@@ -38,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934624914622700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.192871, y: 0, z: -10.704285}
+  m_LocalPosition: {x: -4.8382244, y: 0, z: 13.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,43 +84,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934624914622700}
   m_Mesh: {fileID: 4300002, guid: d2ed07b61d4bda8478b6799f5d5d71aa, type: 3}
---- !u!114 &114924097176024604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934624914622700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bec254abbfc69e4591d523af06b78cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minWood: 3
-  maxWood: 7
-  woodDrop: {fileID: 1231184830587054, guid: 7f106bf1e6d5184499bc20d57470b75e, type: 2}
---- !u!136 &136152630000010520
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934624914622700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.2
-  m_Height: 4.884204
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.442102, z: 0}
---- !u!136 &136276017347553810
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934624914622700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.2
-  m_Height: 4.884204
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.442102, z: 0}
