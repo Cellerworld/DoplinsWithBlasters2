@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     private int stuffCounter;
     private int woodCounter;
     private int goldCounter;
-
+	private ParticleSystem walkParticle;
 
 	//move to stats maybe
     public float speed = 20f;
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         //sword = GetComponentInChildren<Sword>();
 		_animator = this.GetComponentInChildren<Animator> ();
+
     }
 
     void Update () {
@@ -63,6 +64,8 @@ public class Player : MonoBehaviour {
             rb.velocity = Vector3.zero;
         }
     }
+
+
 
 
 	//move to attack script

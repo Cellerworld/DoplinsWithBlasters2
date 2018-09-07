@@ -27,7 +27,7 @@ public class attack : MonoBehaviour {
 		sword.isAttacking = true;
 		_animator.SetTrigger("hit");
 	}
-	//move to attack script
+
 	private void EndAttack()
 	{
 		sword.isAttacking = false;
