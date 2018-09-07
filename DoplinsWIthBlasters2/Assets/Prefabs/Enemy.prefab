@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f6c8d235b1730459f61827802a2a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpawned: 0
+  speed: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
