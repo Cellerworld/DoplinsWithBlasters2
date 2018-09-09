@@ -109,14 +109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ebf9170ccec2a468d577ab92838f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isWaveEnemy: 1
+  _isWaveEnemy: 0
   _waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _movementSpeed: 3.5
   _timeBtwAttacks: 1.25
-  _player: {fileID: 0}
+  _player: {fileID: 1765556778706042, guid: 4ff585ac1e83e5a49906bfd9d847e2a3, type: 2}
   _base: {fileID: 0}
   _attackRange: 1.5
   _followRange: 10
