@@ -547,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1006170210
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,6 +1016,41 @@ Prefab:
     - target: {fileID: 4633131323778250, guid: cff08d0279e512b4a96457bd9622229e, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1208213040}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1758040978}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _isWaveEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 274437297}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1109918377}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _waypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1717131507}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _movementSpeed
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cff08d0279e512b4a96457bd9622229e, type: 2}
