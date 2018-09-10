@@ -8,6 +8,23 @@ public class Destructable : MonoBehaviour {
     public int maxWood;
     public GameObject woodDrop;
 
+	//[SerializeField]
+	private ParticleSystem _leaves;
+
+	private void Start()
+	{
+		_leaves = GetComponentInChildren<ParticleSystem> ();
+	}
+
+	private void Update()
+	{
+		if (!_leaves.isPlaying && Random.Range(0,100) < 10)
+		{
+			_leaves.Play ();
+		}
+
+	}
+
     private void OnDestroy()
     {
         int rnd = Random.Range(minWood, maxWood);
