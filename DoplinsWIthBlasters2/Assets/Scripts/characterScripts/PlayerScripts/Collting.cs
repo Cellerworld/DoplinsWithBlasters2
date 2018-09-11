@@ -21,6 +21,13 @@ public class Collting : MonoBehaviour {
 			GameEventManager.CollectedResource = Resource.MEAT;
 			return;
 		}
+		if(other.CompareTag("Gold"))
+		{
+			other.enabled = false;
+			Destroy(other.gameObject);
+			GameEventManager.CollectedResource = Resource.COIN;
+			return;
+		}
 		if (other.CompareTag("Wood") && other.GetComponent<Rigidbody>().velocity.magnitude < 1f)
 		{
 			other.enabled = false;

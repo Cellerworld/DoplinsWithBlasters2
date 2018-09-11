@@ -107,6 +107,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnCollecting != null)
 		{
 			if (CollectedResource != Resource.NONE) {
+				
 				OnCollecting (CollectedResource, 1);
 				CollectedResource = Resource.NONE;
 			}
