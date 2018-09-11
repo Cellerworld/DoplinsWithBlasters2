@@ -1,5 +1,13 @@
 fileFormatVersion: 2
-guid: f83ee2e39e91c4247928c64ecdb2421f
+<<<<<<< HEAD:DoplinsWIthBlasters2/Assets/Animations/Characters/Enemy/Boss.meta
+guid: a5e17b2d1d27110448841a4e2f9c6b02
+=======
+<<<<<<< HEAD
+guid: dd54c3d5293c80649bbef30cb277a2cd
+=======
+guid: 291dd0d305853e644a9fb4ec4675f437
+>>>>>>> b5042a2ffaec23682972724c9b941c3a56f9fea2
+>>>>>>> e5f3c191c0645b46a365f8e1c66f080adb46aceb:DoplinsWIthBlasters2/Assets/Menu/Logo.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

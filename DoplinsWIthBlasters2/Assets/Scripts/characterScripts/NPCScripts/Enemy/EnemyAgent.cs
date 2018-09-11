@@ -14,7 +14,7 @@ public class EnemyAgent : MonoBehaviour {
     [SerializeField]
     private float _timeBtwAttacks;
     [SerializeField]
-    private GameObject _player;
+    private Player _player;
     [SerializeField]
     private GameObject _base;
     [SerializeField]
@@ -24,15 +24,29 @@ public class EnemyAgent : MonoBehaviour {
 
     private float _currentTimeBtwAttacks;
     private AbstractState _state;
+    [SerializeField]
     private Animator _anim;
     private NavMeshAgent _agent;
     private int index = 0;
+    [SerializeField]
+    private Rigidbody rb;
 
-    private void Start()
+    private void OnEnable()
     {
         //find player if player == null
+        if(_player == null)
+        {
+            _player = FindObjectOfType<Player>();
+        }
+
+        if(_base == null)
+        {
+            _base = GameObject.FindGameObjectWithTag("Base");
+        }
+
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = _movementSpeed;
+
         //depends on _isWaveEnemy
         if (_isWaveEnemy == false)
         {
@@ -42,6 +56,11 @@ public class EnemyAgent : MonoBehaviour {
         {
             SetState(ChargeBaseState.GetInstance());
         }
+    }
+
+    public void SetIsWaveEnemy(bool waveEnemy)
+    {
+        _isWaveEnemy = waveEnemy;
     }
 
     private void OnDrawGizmos()
@@ -67,7 +86,7 @@ public class EnemyAgent : MonoBehaviour {
         _state.Enter(this);
     }
 
-    public GameObject GetPlayer()
+    public Player GetPlayer()
     {
         return _player;
     }
@@ -128,5 +147,15 @@ public class EnemyAgent : MonoBehaviour {
     public bool GetIsWaveEnemy()
     {
         return _isWaveEnemy;
+    }
+
+    public void SetAnimation(bool isAttacking)
+    {
+        _anim.SetBool("isAttacking", isAttacking);
+    }
+
+    public Rigidbody GetRigidbody()
+    {
+        return rb;
     }
 }
