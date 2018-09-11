@@ -17,6 +17,9 @@ public class Granny : MonoBehaviour {
 	[SerializeField]
 	private Inventory _playerinventory;
 
+	[SerializeField]
+	private GameObject _construction;
+
 	Text text;
 
 	void Start()
@@ -36,8 +39,10 @@ public class Granny : MonoBehaviour {
 
 	private void UpgradeTown()
 	{
+		_construction.transform.position = upgrade [_upgradeLevel].transform.position;
+		Instantiate (_construction);
 		upgrade[_upgradeLevel].SetActive(true);
-		text.text = "Come back with " + goldNeeded[_upgradeLevel] + " gold.";
+		text.text = "Come back with " + goldNeeded[_upgradeLevel+1] + " gold.";
 		_upgradeLevel++;
 	}
 

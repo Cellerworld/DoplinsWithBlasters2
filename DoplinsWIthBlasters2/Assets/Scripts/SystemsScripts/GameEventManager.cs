@@ -33,7 +33,7 @@ public class GameEventManager : MonoBehaviour {
 	//upgrade NPC, the town and the player is intrested in this
 	public delegate void UpgradeVillage(Resource pResource, int pAmount);
 	public static event UpgradeVillage OnUpgradeVillage;
-	public static int UpgradeCost;
+	public static int UpgradeCost = -1;
 
 	public delegate void DestroyBuilding();
 	public static event DestroyBuilding OnDestroyBuilding;
@@ -144,9 +144,12 @@ public class GameEventManager : MonoBehaviour {
 	{
 		if(OnUpgradeVillage != null)
 		{
-			if(UpgradeCost != 0)//exchange for condition
-			OnUpgradeVillage ( Resource.COIN , -UpgradeCost);
-			UpgradeCost = 0;
+			if (UpgradeCost > -1)
+			{
+				
+				OnUpgradeVillage (Resource.COIN, -UpgradeCost);
+				UpgradeCost = -1;
+			}
 		}
 	}
 
