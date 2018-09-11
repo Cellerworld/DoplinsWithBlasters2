@@ -19,11 +19,16 @@ public class NPC : MonoBehaviour {
 	private delegate void getResourceRequired ();
 	private getResourceRequired checkForRequiredResource;
 
+	private string[] _resourceText;
+
 	private void Start()
 	{
+		_resourceText = new string[2];
 		if(_requiredResource == Resource.MEAT)
 		{
 			checkForRequiredResource += Meat;
+			_resourceText[0] = "Get me ";
+			_resourceText[1] = " meat Scrub";
 		}
 		else if(_requiredResource == Resource.COIN)
 		{
@@ -32,6 +37,8 @@ public class NPC : MonoBehaviour {
 		else if(_requiredResource == Resource.TREASURE)
 		{
 			checkForRequiredResource += Treasure;
+			_resourceText[0] = "Find me ";
+			_resourceText[1] = " treasure pal";
 		}
 		else if(_requiredResource == Resource.WOOD)
 		{
@@ -92,10 +99,10 @@ public class NPC : MonoBehaviour {
         if(other.CompareTag("Player"))
         {
             Vector3 pos = transform.position;
-            pos.y = 1;
+            pos.y = 2;
             textbox.transform.position = pos;
             Text text = textbox.GetComponentInChildren<Text>();
-            text.text = "Give me " + stuffNeeded + " stuff.";
+			text.text = _resourceText[0] + stuffNeeded + _resourceText[1];
             textbox.SetActive(true);
             playerIsNearby = true;
         }

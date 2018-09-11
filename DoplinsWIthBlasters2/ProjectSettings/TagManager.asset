@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Granny
+  - Destructable
+  - Wood
+  - Enemy
+  - Treasure
+  - Collectable
   layers:
   - Default
   - TransparentFX
