@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Treasure
   - Collectable
+  - Base
   layers:
   - Default
   - TransparentFX

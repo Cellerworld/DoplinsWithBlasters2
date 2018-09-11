@@ -18,6 +18,7 @@ public class FollowPlayerState : AbstractState
 
     public override void Enter(EnemyAgent agent)
     {
+        agent.GetNavMeshAgent().isStopped = false;
         agent.SetPlayerTarget();
         Debug.Log("Found him");
     }

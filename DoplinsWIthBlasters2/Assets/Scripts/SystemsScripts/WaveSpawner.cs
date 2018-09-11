@@ -11,6 +11,8 @@ public class WaveSpawner : MonoBehaviour
     int _enemyAmountToSpawn;
     [SerializeField]
     float _timeBtwWaves;
+    [SerializeField]
+    float _timeBtwEnemies;
     float _currentTimeBtwWaves;
     [SerializeField]
     [Header("This list MUST NOT! be empty!")]
@@ -78,7 +80,7 @@ public class WaveSpawner : MonoBehaviour
         {
             SpawnEnemy(Random.Range(0, _chosenSpawnsPoints.Length - 1));
 
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(_timeBtwEnemies);
         }
         _currentTimeBtwWaves = _timeBtwWaves;
         isSpawning = false;
@@ -89,5 +91,9 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemy = Instantiate(_enemyToSpawn, _chosenSpawnsPoints[i].transform.position, Quaternion.identity);
         enemy.GetComponent<NavMeshAgent>().speed = _stats.Speed;
         enemy.GetComponent<NavMeshAgent>().destination = Vector3.zero;
+
+        EnemyAgent agent = enemy.GetComponent<EnemyAgent>();
+        agent.SetIsWaveEnemy(true);
+        agent.enabled = true;
     }
 }

@@ -543,11 +543,11 @@ GameObject:
   - component: {fileID: 1006170210}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1006170210
 Transform:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006170209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06699991, y: 1.8102837, z: -0.54300785}
+  m_LocalPosition: {x: -26.06, y: 1.8102837, z: -40.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1257663385}
@@ -739,7 +739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1184591374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,10 +766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b068b0bea8fe974cb38c30a90dd7119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyToSpawn: {fileID: 1462781025202474, guid: fd9857f0429288c44b72ac7ce326f504,
+  _enemyToSpawn: {fileID: 1165266269378766, guid: cff08d0279e512b4a96457bd9622229e,
     type: 2}
-  _enemyAmountToSpawn: 10000
+  _enemyAmountToSpawn: 10
   _timeBtwWaves: 5
+  _timeBtwEnemies: 0.75
   _spawnPoints:
   - {fileID: 274437297}
   - {fileID: 1109918377}
@@ -1015,6 +1016,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4633131323778250, guid: cff08d0279e512b4a96457bd9622229e, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 274437297}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1109918377}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _waypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1717131507}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1208213040}
+    - target: {fileID: 114622227502706234, guid: cff08d0279e512b4a96457bd9622229e,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

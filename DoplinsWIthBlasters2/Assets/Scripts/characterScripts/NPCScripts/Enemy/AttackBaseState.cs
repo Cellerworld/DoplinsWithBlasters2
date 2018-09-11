@@ -17,6 +17,7 @@ public class AttackBaseState : AbstractState
 
     public override void Enter(EnemyAgent agent)
     {
+        agent.SetAnimation(true);
         agent.GetNavMeshAgent().isStopped = true;
         agent.ResetAttack();
         //start attack animation
