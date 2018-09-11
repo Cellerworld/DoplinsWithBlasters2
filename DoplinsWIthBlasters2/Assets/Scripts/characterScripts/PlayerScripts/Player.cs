@@ -12,7 +12,19 @@ public class Player : MonoBehaviour {
 
 
 	//move to stats maybe
-    public float speed = 20f;
+	[SerializeField]
+	private  float _speed = 20f;
+	public float Speed
+	{
+		get
+		{
+			return _speed;
+		}
+		set
+		{
+			_speed = value;
+		}
+	}
     private Rigidbody rb;
 	//move away to hud
 //    public Text text;
@@ -55,7 +67,7 @@ public class Player : MonoBehaviour {
         if (vel.x != 0 || vel.z != 0)
         {
             vel.Normalize();
-            rb.velocity = vel * speed * Time.deltaTime;
+            rb.velocity = vel * _speed * Time.deltaTime;
             transform.rotation = Quaternion.LookRotation(vel);
         }
         else
