@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Destructable : MonoBehaviour {
 
-    public int minWood;
-    public int maxWood;
-    public GameObject woodDrop;
+	public int minWood;
+	public int maxWood;
+	public GameObject woodDrop;
 
 	//[SerializeField]
 	private ParticleSystem _leaves;
@@ -25,12 +25,12 @@ public class Destructable : MonoBehaviour {
 
 	}
 
-    private void OnDestroy()
-    {
-        int rnd = Random.Range(minWood, maxWood);
-        for (int i = 0; i < rnd; i++)
-        {
-            Instantiate(woodDrop, transform.position, Quaternion.identity);
-        }
-    }
+	private void OnDestroy()
+	{
+		int rnd = Random.Range(minWood, maxWood);
+		for (int i = 0; i < rnd; i++)
+		{
+			Instantiate(woodDrop, transform.position, Quaternion.identity);
+		}
+	}
 }

@@ -8,18 +8,18 @@ public enum Achievment {NONE, WOODSMAN, BANKER, HULK, BUFFER, HEALER, KILLER, TR
 
 public class GameEventManager : MonoBehaviour {
 
-    public delegate void PlayerDeath();
-    public static event PlayerDeath OnPlayerDeath;
-    public static bool PlayerIsdead = false;
+	public delegate void PlayerDeath();
+	public static event PlayerDeath OnPlayerDeath;
+	public static bool PlayerIsdead = false;
 
 	//The attacker knows when he hid something and delivers his damage, the attacked knows he was attacked and sets a variable on for receiving damage
 	//alternative just use the collisio bodies in the check to check on stats per get method
-//	public delegate void Attack(int damage);
-//  	public static event Attack OnAttack;
+	//	public delegate void Attack(int damage);
+	//  	public static event Attack OnAttack;
 
 	//player, achievmentsystem and itemdrop are intrested in this.
-    public delegate void EnemyDeath();
-    public static event EnemyDeath OnEnemyDeath;
+	public delegate void EnemyDeath();
+	public static event EnemyDeath OnEnemyDeath;
 
 	//player and achievmentsystem are intrested in this.
 	public delegate void Collect(Resource resource, int pAmount);
@@ -67,12 +67,12 @@ public class GameEventManager : MonoBehaviour {
 
 	//for faster coding.
 	private delegate void CheckEvents();
-    private CheckEvents _eventCheck;
+	private CheckEvents _eventCheck;
 
 
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		_eventCheck += OnAchievementUpEvent;
 		_eventCheck += OnCollectingEvent;
 		_eventCheck += OnDestroyBuildingEvent;
@@ -83,7 +83,7 @@ public class GameEventManager : MonoBehaviour {
 		_eventCheck += OnEndGameEvent;
 		_eventCheck += OnGiveMaterialEvent;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (_eventCheck != null) {
@@ -118,7 +118,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnDestroyBuilding != null)
 		{
 			if(false)//exchange for condition
-			OnDestroyBuilding ();
+				OnDestroyBuilding ();
 		}
 	}
 
@@ -127,7 +127,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnEnemyDeath != null)
 		{
 			if(false)//exchange for condition
-			OnEnemyDeath ();
+				OnEnemyDeath ();
 		}
 	}
 
@@ -136,7 +136,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnPlayerDeath != null)
 		{
 			if(false)//exchange for condition
-			OnPlayerDeath ();
+				OnPlayerDeath ();
 		}
 	}
 
@@ -146,7 +146,7 @@ public class GameEventManager : MonoBehaviour {
 		{
 			if (UpgradeCost > -1)
 			{
-				
+
 				OnUpgradeVillage (Resource.COIN, -UpgradeCost);
 				UpgradeCost = -1;
 			}
@@ -158,7 +158,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnWavespawn != null)
 		{
 			if(false)//exchange for condition
-			OnWavespawn ();
+				OnWavespawn ();
 		}
 	}
 
@@ -167,7 +167,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnEndGame != null)
 		{
 			if(false)//exchange for condition
-			OnEndGame ();
+				OnEndGame ();
 		}
 	}
 
