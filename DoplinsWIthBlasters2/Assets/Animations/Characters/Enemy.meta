@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:DoplinsWIthBlasters2/Assets/Animations/Characters/Enemy.meta
 guid: 8064b0fc1bf871e4e8c4fe26b8c41db3
+=======
+guid: aae8b00a7f73f8248917e7db89f6dc08
+>>>>>>> e5f3c191c0645b46a365f8e1c66f080adb46aceb:DoplinsWIthBlasters2/Assets/Animations/Characters/Enemy.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
