@@ -18,6 +18,9 @@ public class AttackState : AbstractState
 
     public override void Enter(EnemyAgent agent)
     {
+        agent.GetRigidbody().velocity = Vector3.zero;
+        agent.GetNavMeshAgent().isStopped = true;
+        agent.SetAnimation(true);
         agent.ResetAttack();
         //start attack animation
         agent.Attack();
@@ -30,8 +33,7 @@ public class AttackState : AbstractState
         //Debug.Log(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position));
         if(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position) < agent.GetAttackRange())
         {
-            agent.GetNavMeshAgent().isStopped = true;
-            if(agent.GetCurrentTimeBtwAttacks() <= 0)
+            if (agent.GetCurrentTimeBtwAttacks() <= 0)
             {
                 agent.Attack();
             }
@@ -50,5 +52,6 @@ public class AttackState : AbstractState
     {
         Debug.Log("Dont run away coward!");
         agent.GetNavMeshAgent().isStopped = false;
+        agent.SetAnimation(false);
     }
 }
