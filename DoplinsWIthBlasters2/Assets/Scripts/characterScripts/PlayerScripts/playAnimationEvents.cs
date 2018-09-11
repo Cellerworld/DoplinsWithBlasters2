@@ -20,7 +20,7 @@ public class playAnimationEvents : MonoBehaviour {
 //	[SerializeField]
 //	private Animator _slashDownBoxes;
 
-	private AudioSource _audioSrc;
+	private AudioSource[] _audioSrc;
 
 	[SerializeField]
 	private GameObject _trail;
@@ -50,7 +50,7 @@ public class playAnimationEvents : MonoBehaviour {
 
 	private void Start()
 	{
-		_audioSrc = GetComponent<AudioSource> ();
+		_audioSrc = GetComponents<AudioSource> ();
 		_player = GetComponentInParent<Player> ();
 		_movementspeed = _player.Speed;
 	}
@@ -97,8 +97,8 @@ public class playAnimationEvents : MonoBehaviour {
 	private void BeginMove()
 	{
 		_player.Speed = _movementspeed;
-		if (!_audioSrc.isPlaying) {
-			_audioSrc.PlayOneShot (_moveSound);
+		if (!_audioSrc[0].isPlaying) {
+			_audioSrc[0].PlayOneShot (_moveSound);
 		}
 	}
 
@@ -109,7 +109,7 @@ public class playAnimationEvents : MonoBehaviour {
 		playedSound[2] = false;
 		playedSound[3] = false;
 		if (!playedSound [0]) {
-			_audioSrc.PlayOneShot (_slash1Sound);
+			_audioSrc[1].PlayOneShot (_slash1Sound);
 		}
 		playedSound[0] = true;
 	}
@@ -117,7 +117,7 @@ public class playAnimationEvents : MonoBehaviour {
 	private void Slash2Sound()
 	{
 		if (!playedSound [1]) {
-		_audioSrc.PlayOneShot(_slash2Sound);
+			_audioSrc[1].PlayOneShot(_slash2Sound);
 		}
 		playedSound[1] = true;
 	}
@@ -125,7 +125,7 @@ public class playAnimationEvents : MonoBehaviour {
 	private void Slash3Sound()
 	{
 		if (!playedSound [2]) {
-		_audioSrc.PlayOneShot(_slash3Sound);
+			_audioSrc[1].PlayOneShot(_slash3Sound);
 		}
 		playedSound[2] = true;
 	}
@@ -133,7 +133,7 @@ public class playAnimationEvents : MonoBehaviour {
 	private void Slash4Sound()
 	{
 		if (!playedSound [3]) {
-		_audioSrc.PlayOneShot(_slash4Sound);
+			_audioSrc[1].PlayOneShot(_slash4Sound);
 		}
 		playedSound[3] = true;
 	}
