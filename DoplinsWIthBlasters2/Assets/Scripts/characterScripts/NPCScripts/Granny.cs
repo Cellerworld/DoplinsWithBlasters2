@@ -61,7 +61,7 @@ public class Granny : MonoBehaviour {
 
 	private void UpgradeTown()
 	{
-		
+
 		text.text = "Come back with " + goldNeeded[_upgradeLevel+1] + " gold.";
 	}
 
@@ -103,5 +103,5 @@ public class Granny : MonoBehaviour {
 		scaleOfBuilding = 0.01f;
 		_upgradeLevel++;
 	}
-		
+
 }
