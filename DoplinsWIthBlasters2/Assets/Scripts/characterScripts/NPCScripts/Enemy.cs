@@ -18,11 +18,11 @@ public class Enemy : MonoBehaviour {
     {
         int rnd = Random.Range(0, 100);
 		if (_dropPercentageGold >= rnd) {
-			Instantiate (_meat, new Vector3 (transform.position.x, -0.25f, transform.position.z), Quaternion.identity);
+			Instantiate (_meat, new Vector3 (transform.position.x, 1f, transform.position.z), Quaternion.identity);
 		} 
 		else if (_dropPercentageGold + _dropPercentageMeat >= rnd) 
 		{
-			Instantiate (_gold, new Vector3 (transform.position.x, -0.25f, transform.position.z), Quaternion.identity);
+			Instantiate (_gold, new Vector3 (transform.position.x, 1f, transform.position.z), Quaternion.identity);
 		}
     }
 }

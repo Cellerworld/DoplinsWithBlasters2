@@ -8,7 +8,9 @@ public class Camera : MonoBehaviour {
 
 	private Vector3 _posDistance;
 	private float distanceScaler = 1;
-	private bool _increase = false;
+
+	[SerializeField, Range(0.01f, 0.1f)]
+	private float _zoomSpeed;
 
 	private void OnEnable()
 	{
@@ -22,27 +24,33 @@ public class Camera : MonoBehaviour {
 	{
 		GameEventManager.OnUpgradeVillage -= CameraZoom;
 	}
+		
 
-	void Update () {
-		if (_increase)
-		{
-			distanceScaler *= 1.01f;
-		}
-		if(distanceScaler > 3)
-		{
-			_increase = false;
-		}
-		if (!_increase)
-		{
-			distanceScaler *= (distanceScaler < 1.01f) ? 1: 0.99f;
-		}
-
+	void Update()
+	{
 		Vector3 pos = new Vector3(target.transform.position.x, 0, target.transform.position.z ) + _posDistance * distanceScaler;
 		transform.position = pos;
 	}
 
 	private void CameraZoom(Resource pResource, int amount)
 	{
-		_increase = true;
+		StartCoroutine (Zoom(_zoomSpeed));
+	}
+
+	IEnumerator Zoom(float speed)
+	{
+		while(distanceScaler < 3)
+		{
+			distanceScaler *= 1+ speed;
+			yield return null;
+		}
+		GameEventManager.buildSettlement = true;
+		yield return new WaitForSeconds(1);
+
+		while(distanceScaler > 1)
+		{
+			distanceScaler *= 1 - speed;
+			yield return null;
+		}
 	}
 }

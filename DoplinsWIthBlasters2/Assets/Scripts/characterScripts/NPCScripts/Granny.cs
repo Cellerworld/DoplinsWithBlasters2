@@ -9,7 +9,13 @@ public class Granny : MonoBehaviour {
 	private int[] goldNeeded = new int[8];
 	[SerializeField]
 	private int[] woodNeeded = new int[8];
+
 	private int _upgradeLevel = 0;
+	private float scaleOfBuilding = 0.01f;
+	private Vector3 _originalScale;
+	[SerializeField, Range(1f, 2f)]
+	private float speedOfBuilding;
+
 	public GameObject textbox;
 	private bool playerIsNearby;
 	public Player player;
@@ -27,6 +33,16 @@ public class Granny : MonoBehaviour {
 		text = textbox.GetComponentInChildren<Text> ();
 	}
 
+	void OnEnable()
+	{
+		GameEventManager.OnBuildSettlement += StartBuilding;
+	}
+
+	void OnDisable()
+	{
+		GameEventManager.OnBuildSettlement -= StartBuilding;
+	}
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.E) && playerIsNearby && _playerinventory.CoinAmount >= goldNeeded[_upgradeLevel])
@@ -37,13 +53,16 @@ public class Granny : MonoBehaviour {
 		}
 	}
 
+	private void StartBuilding()
+	{
+		_originalScale = upgrade [_upgradeLevel].transform.localScale;
+		StartCoroutine (Building ());
+	}
+
 	private void UpgradeTown()
 	{
-		_construction.transform.position = upgrade [_upgradeLevel].transform.position;
-		Instantiate (_construction);
-		upgrade[_upgradeLevel].SetActive(true);
+		
 		text.text = "Come back with " + goldNeeded[_upgradeLevel+1] + " gold.";
-		_upgradeLevel++;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -67,4 +86,22 @@ public class Granny : MonoBehaviour {
 			textbox.SetActive(false);
 		}
 	}
+
+	private IEnumerator Building()
+	{
+		upgrade [_upgradeLevel].transform.localScale = new Vector3 ( _originalScale.x, _originalScale.y*scaleOfBuilding, _originalScale.z);
+		upgrade[_upgradeLevel].SetActive(true);
+		while(scaleOfBuilding < 1)
+		{
+			scaleOfBuilding *= speedOfBuilding;
+			Mathf.Clamp01 (scaleOfBuilding);
+			_construction.transform.position = upgrade [_upgradeLevel].transform.position;
+			upgrade [_upgradeLevel].transform.localScale = new Vector3 ( _originalScale.x, _originalScale.y*scaleOfBuilding, _originalScale.z);
+			Instantiate (_construction);
+			yield return null;
+		}
+		scaleOfBuilding = 0.01f;
+		_upgradeLevel++;
+	}
+		
 }
