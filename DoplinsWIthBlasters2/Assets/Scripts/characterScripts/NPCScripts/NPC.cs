@@ -55,6 +55,10 @@ public class NPC : MonoBehaviour {
 			}
 			// player.MakeExchange(stuffNeeded, goldReward);
 		}
+		if(Input.GetKeyDown(KeyCode.L) && playerIsNearby)
+		{
+			GameEventManager.ExchangeForCurrency (Resource.COIN, -0, Resource.COIN, 6000);
+		}
 	}
 
 	private void Coin()
