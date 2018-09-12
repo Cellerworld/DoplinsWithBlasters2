@@ -30,7 +30,6 @@ public class AttackState : AbstractState
     {
         //check if target still in attack range if yes attack again after ending the attack animation
         agent.SetPlayerTarget();
-        //Debug.Log(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position));
         if(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position) < agent.GetAttackRange())
         {
             if (agent.GetCurrentTimeBtwAttacks() <= 0)
@@ -50,7 +49,6 @@ public class AttackState : AbstractState
 
     public override void Exit(EnemyAgent agent)
     {
-        Debug.Log("Dont run away coward!");
         agent.GetNavMeshAgent().isStopped = false;
         agent.SetAnimation(false);
     }

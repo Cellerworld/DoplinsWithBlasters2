@@ -25,12 +25,20 @@ public class Destructable : MonoBehaviour {
 
 	}
 
-	private void OnDestroy()
+    private void OnApplicationQuit()
+    {
+        woodDrop = null;
+    }
+
+    private void OnDestroy()
 	{
-		int rnd = Random.Range(minWood, maxWood);
-		for (int i = 0; i < rnd; i++)
-		{
-			Instantiate(woodDrop, transform.position, Quaternion.identity);
-		}
+        if (woodDrop != null)
+        {
+            int rnd = Random.Range(minWood, maxWood);
+            for (int i = 0; i < rnd; i++)
+            {
+                Instantiate(woodDrop, transform.position, Quaternion.identity);
+            }
+        }
 	}
 }
