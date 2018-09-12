@@ -29,8 +29,14 @@ public class Destructable : MonoBehaviour {
 
 	}
 
+	private void OnApplicationQuit()
+	{
+		woodDrop = null;
+	}
+
 	private void OnDestroy()
 	{
+
 		int rnd = Random.Range(minWood, maxWood);
 		float radius = Random.Range (3, 5);
 		Instantiate (stem, transform.position, Quaternion.identity).transform.localScale = new Vector3(radius, 2, radius);
@@ -40,3 +46,6 @@ public class Destructable : MonoBehaviour {
 		}
 	}
 }
+
+
+

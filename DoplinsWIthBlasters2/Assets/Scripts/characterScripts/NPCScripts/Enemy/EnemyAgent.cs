@@ -58,6 +58,15 @@ public class EnemyAgent : MonoBehaviour {
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        if(_isWaveEnemy)
+        {
+            GetComponent<Enemy>().enabled = false;
+            Destroy(gameObject);
+        }
+    }
+
     public void SetIsWaveEnemy(bool waveEnemy)
     {
         _isWaveEnemy = waveEnemy;
@@ -125,7 +134,6 @@ public class EnemyAgent : MonoBehaviour {
 
     public void Attack()
     {
-        Debug.Log("CHARGEEEEEEEEE!");
         _currentTimeBtwAttacks = _timeBtwAttacks;
     }
 

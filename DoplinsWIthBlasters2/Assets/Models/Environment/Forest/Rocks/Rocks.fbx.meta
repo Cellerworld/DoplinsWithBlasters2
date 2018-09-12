@@ -21,6 +21,9 @@ ModelImporter:
     4300000: Rock_1
     4300002: Rock_2
     4300004: Rock_3
+    6400000: Rock_1
+    6400002: Rock_2
+    6400004: Rock_3
   externalObjects: {}
   materials:
     importMaterials: 1
