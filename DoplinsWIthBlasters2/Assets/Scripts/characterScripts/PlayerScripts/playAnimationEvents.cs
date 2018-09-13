@@ -37,13 +37,15 @@ public class playAnimationEvents : MonoBehaviour {
 	private AudioClip _slash3Sound;
 	[SerializeField]
 	private AudioClip _slash4Sound;
+	[SerializeField]
+	private AudioClip _slash5Sound;
 
-	private bool[] playedSound = new bool[4]{false, false , false , false};
+	private bool[] playedSound = new bool[5]{false, false , false , false, false};
 
 	[SerializeField]
 	private ParticleSystem _moveImpact;
 	[SerializeField]
-	private AudioClip _moveSound;
+	private AudioClip[] _moveSound;
 
 	private Player _player;
 	private float _movementspeed;
@@ -98,7 +100,7 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		_player.Speed = _movementspeed;
 		if (!_audioSrc[0].isPlaying) {
-			_audioSrc[0].PlayOneShot (_moveSound);
+			_audioSrc[0].PlayOneShot (_moveSound[Random.Range(0,3)]);
 		}
 	}
 
@@ -108,6 +110,7 @@ public class playAnimationEvents : MonoBehaviour {
 		playedSound[1] = false;
 		playedSound[2] = false;
 		playedSound[3] = false;
+		playedSound[4] = false;
 		if (!playedSound [0]) {
 			_audioSrc[1].PlayOneShot (_slash1Sound);
 		}
@@ -136,5 +139,13 @@ public class playAnimationEvents : MonoBehaviour {
 			_audioSrc[1].PlayOneShot(_slash4Sound);
 		}
 		playedSound[3] = true;
+	}
+
+	private void Slash5Sound()
+	{
+		if (!playedSound [4]) {
+			_audioSrc[1].PlayOneShot(_slash4Sound);
+		}
+		playedSound[4] = true;
 	}
 }

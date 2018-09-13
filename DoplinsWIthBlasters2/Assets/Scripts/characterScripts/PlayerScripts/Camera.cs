@@ -45,7 +45,7 @@ public class Camera : MonoBehaviour {
 			yield return null;
 		}
 		GameEventManager.buildSettlement = true;
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(2);
 
 		while(distanceScaler > 1)
 		{

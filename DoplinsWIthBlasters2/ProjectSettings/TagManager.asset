@@ -12,6 +12,8 @@ TagManager:
   - Collectable
   - Base
   - Gold
+  - EnemyWave
+  - Destructable2
   layers:
   - Default
   - TransparentFX
