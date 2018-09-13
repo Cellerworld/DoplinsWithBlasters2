@@ -20,7 +20,6 @@ public class FollowPlayerState : AbstractState
     {
         agent.GetNavMeshAgent().isStopped = false;
         agent.SetPlayerTarget();
-        Debug.Log("Found him");
     }
 
     public override void Update(EnemyAgent agent)
@@ -47,6 +46,5 @@ public class FollowPlayerState : AbstractState
 
     public override void Exit(EnemyAgent agent)
     {
-        Debug.Log("Doing something else should be better.");
     }
 }

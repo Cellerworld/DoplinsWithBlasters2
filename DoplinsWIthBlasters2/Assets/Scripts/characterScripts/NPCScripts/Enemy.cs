@@ -5,83 +5,44 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 
-    //use state machine instead!! work for friday
-    //wandering enemy (patroling through the wood)
-    //"agressive" enemy (running towards the base)
-    //both attack player on sight
+	[SerializeField]
+    float _dropPercentageMeat;
+	[SerializeField]
+	float _dropPercentageGold;
+	[SerializeField]
+	GameObject _meat;
+	[SerializeField]
+	GameObject _gold;
 
-    public bool isSpawned;
-
-    private int waypointIndex = 1;
-    public GameObject[] waypoints;
-
-    public float dropPercentage;
-    public GameObject drop;
-    private bool followingPlayer = false;
-    public float maxFollowRange;
-    public GameObject player;
-
-    private NavMeshAgent agent;
-
-    private void Start()
+    private void OnApplicationQuit()
     {
-        isSpawned = true;
-        agent = GetComponent<NavMeshAgent>();
-        if (isSpawned == false)
-        {
-            agent.destination = waypoints[0].transform.position;
-        }
-    }
 
-    private void Update()
-    {
-        if (isSpawned == false)
-        {
-            CheckForGoal();
-        }
-        else
-        {
-            if(Vector3.Distance(transform.position, agent.destination) < 2/*magic number that needs to be the radius of the target + a part of the weapon*/)
-            {
-                //attack target (attack script is using input --> cant use it for enemy
-                Debug.Log("CHARGEEEEE!");
-            }
-        }
-        RaycastHit hit;
-        if(Physics.SphereCast(transform.position + new Vector3(0.5f, 0.5f, 0.5f), 0.5f, transform.forward, out hit, 10))
-        {
-            if (hit.collider.tag == "Player")
-            {
-                followingPlayer = true;
-            }
-        }
-        if(followingPlayer)
-        {
-            agent.destination = player.transform.position;
-            if(Vector3.Distance(transform.position, player.transform.position) > maxFollowRange)
-            {
-                followingPlayer = false;
-                agent.destination = waypoints[waypointIndex].transform.position;
-            }
-        }
-    }
-
-    private void CheckForGoal()
-    {
-        if(Vector3.Distance(transform.position, agent.destination) < 2f)
-        {
-            agent.destination = waypoints[waypointIndex].transform.position;
-            waypointIndex++;
-            waypointIndex = waypointIndex % waypoints.Length;
-        }
+        int rnd = Random.Range(0, 100);
+		if (_dropPercentageGold >= rnd) {
+			Instantiate (_meat, new Vector3 (transform.position.x, 1f, transform.position.z), Quaternion.identity);
+		} 
+		else if (_dropPercentageGold + _dropPercentageMeat >= rnd) 
+		{
+			Instantiate (_gold, new Vector3 (transform.position.x, 1f, transform.position.z), Quaternion.identity);
+		}
+        _meat = null;
+        _gold = null;
     }
 
     private void OnDestroy()
     {
-        int rnd = Random.Range(0, 100);
-        if(dropPercentage >= rnd)
+        if (_meat != null && _gold != null)
         {
-            Instantiate(drop, new Vector3(transform.position.x, -0.25f, transform.position.z), Quaternion.identity);
+            int rnd = Random.Range(0, 100);
+            if (_dropPercentageGold >= rnd)
+            {
+                Instantiate(_meat, new Vector3(transform.position.x, -0.25f, transform.position.z), Quaternion.identity);
+            }
+            else if (_dropPercentageGold + _dropPercentageMeat >= rnd)
+            {
+                Instantiate(_gold, new Vector3(transform.position.x, -0.25f, transform.position.z), Quaternion.identity);
+            }
         }
+
     }
 }

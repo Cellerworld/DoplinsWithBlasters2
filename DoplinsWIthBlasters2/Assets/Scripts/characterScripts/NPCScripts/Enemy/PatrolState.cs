@@ -39,6 +39,5 @@ public class PatrolState : AbstractState
 
     public override void Exit(EnemyAgent agent)
     {
-        Debug.Log("Get this coward!");
     }
 }

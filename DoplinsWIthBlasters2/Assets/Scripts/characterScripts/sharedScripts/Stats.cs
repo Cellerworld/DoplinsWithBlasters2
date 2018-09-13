@@ -58,6 +58,7 @@ public class Stats : MonoBehaviour {
 
 		if(_currentHealthPoints <= 0) 
 		{
+            Debug.Log("I died");
 			//set trigger for gameover event
 		}
 	}

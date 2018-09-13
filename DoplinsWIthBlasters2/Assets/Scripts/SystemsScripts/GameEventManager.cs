@@ -35,6 +35,10 @@ public class GameEventManager : MonoBehaviour {
 	public static event UpgradeVillage OnUpgradeVillage;
 	public static int UpgradeCost = -1;
 
+	public delegate void BuildSettlement();
+	public static event BuildSettlement OnBuildSettlement;
+	public static bool buildSettlement;
+
 	public delegate void DestroyBuilding();
 	public static event DestroyBuilding OnDestroyBuilding;
 
@@ -79,6 +83,7 @@ public class GameEventManager : MonoBehaviour {
 		_eventCheck += OnEnemyDeathEvent;
 		_eventCheck += OnPlayerDeathEvent;
 		_eventCheck += OnUpgradeVillageEvent;
+		_eventCheck += OnBuildSettlementEvent;
 		_eventCheck += OnWavespawnEvent;
 		_eventCheck += OnEndGameEvent;
 		_eventCheck += OnGiveMaterialEvent;
@@ -107,6 +112,7 @@ public class GameEventManager : MonoBehaviour {
 		if(OnCollecting != null)
 		{
 			if (CollectedResource != Resource.NONE) {
+				
 				OnCollecting (CollectedResource, 1);
 				CollectedResource = Resource.NONE;
 			}
@@ -149,6 +155,19 @@ public class GameEventManager : MonoBehaviour {
 
 				OnUpgradeVillage (Resource.COIN, -UpgradeCost);
 				UpgradeCost = -1;
+			}
+		}
+	}
+
+	private void OnBuildSettlementEvent()
+	{
+		if(OnBuildSettlement != null)
+		{
+			if (buildSettlement)
+			{
+
+				OnBuildSettlement ();
+				buildSettlement = false;
 			}
 		}
 	}

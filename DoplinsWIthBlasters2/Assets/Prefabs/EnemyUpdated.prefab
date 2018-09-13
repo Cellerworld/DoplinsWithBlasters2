@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 65829092475229248}
   - component: {fileID: 195861110561768290}
   - component: {fileID: 54221076096469472}
+  - component: {fileID: 114185101760553506}
   m_Layer: 0
   m_Name: EnemyUpdated
   m_TagString: Enemy
@@ -110,6 +111,8 @@ GameObject:
   - component: {fileID: 4486415987846318}
   - component: {fileID: 33791519804504380}
   - component: {fileID: 23513787338896262}
+  - component: {fileID: 64542576185270806}
+  - component: {fileID: 114153223193165652}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -192,6 +195,8 @@ GameObject:
   - component: {fileID: 4394623211283434}
   - component: {fileID: 33660050794161700}
   - component: {fileID: 23837714972969540}
+  - component: {fileID: 64231635505238634}
+  - component: {fileID: 114272448385367710}
   m_Layer: 0
   m_Name: Sword (1)
   m_TagString: Untagged
@@ -627,7 +632,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165266269378766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -16.36}
+  m_LocalPosition: {x: -53.4, y: 0.83497393, z: -119.3}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4383488828075648}
@@ -1479,6 +1484,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64231635505238634
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408584748207804}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300028, guid: 3781b64a807515e4497a55eaca4b8e8d, type: 3}
+--- !u!64 &64542576185270806
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205942031641582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300028, guid: 3781b64a807515e4497a55eaca4b8e8d, type: 3}
 --- !u!65 &65829092475229248
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1509,6 +1542,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114153223193165652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205942031641582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1c5644d514a4b4fb9fec5ce5661e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114185101760553506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165266269378766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f6c8d235b1730459f61827802a2a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropPercentageMeat: 15
+  _dropPercentageGold: 20
+  _meat: {fileID: 1589393657105914, guid: eea59d85bfb0e104e8215ff11898bc6a, type: 2}
+  _gold: {fileID: 1137154846773176, guid: da1731a9584a3f64e94e3aafe6929fad, type: 2}
+--- !u!114 &114272448385367710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408584748207804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1c5644d514a4b4fb9fec5ce5661e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114622227502706234
 MonoBehaviour:
   m_ObjectHideFlags: 1
