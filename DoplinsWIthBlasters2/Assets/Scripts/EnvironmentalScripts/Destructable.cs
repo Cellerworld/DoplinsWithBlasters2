@@ -20,14 +20,14 @@ public class Destructable : MonoBehaviour {
 		_leaves = GetComponentInChildren<ParticleSystem> ();
 	}
 
-	private void Update()
-	{
-		if (!_leaves.isPlaying && Random.Range(0,100) < 10)
-		{
-			_leaves.Play ();
-		}
-
-	}
+//	private void Update()
+//	{
+//		if (!_leaves.isPlaying && Random.Range(0,100) < 10)
+//		{
+//			_leaves.Play ();
+//		}
+//
+//	}
 
 	private void OnApplicationQuit()
 	{

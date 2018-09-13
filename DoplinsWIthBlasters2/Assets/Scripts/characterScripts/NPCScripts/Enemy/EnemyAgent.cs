@@ -31,6 +31,11 @@ public class EnemyAgent : MonoBehaviour {
     [SerializeField]
     private Rigidbody rb;
 
+	[SerializeField]
+	private EnemyAttack _leftSword;
+	[SerializeField]
+	private EnemyAttack _rightSword;
+
     private void OnEnable()
     {
         //find player if player == null
@@ -160,6 +165,8 @@ public class EnemyAgent : MonoBehaviour {
     public void SetAnimation(bool isAttacking)
     {
         _anim.SetBool("isAttacking", isAttacking);
+		_leftSword.enabled = isAttacking;
+		_rightSword.enabled = isAttacking;
     }
 
     public Rigidbody GetRigidbody()

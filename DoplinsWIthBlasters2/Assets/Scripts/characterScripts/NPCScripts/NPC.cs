@@ -16,6 +16,12 @@ public class NPC : MonoBehaviour {
 	[SerializeField]
 	private Resource _requiredResource;
 
+	//only needed for socializer quests
+	[SerializeField]
+	private GameObject _questTarget;
+	[SerializeField]
+	private ParticleSystem _happyExplosion;
+
 	private delegate void getResourceRequired ();
 	private getResourceRequired checkForRequiredResource;
 
@@ -30,8 +36,12 @@ public class NPC : MonoBehaviour {
 			_resourceText[0] = "Get me ";
 			_resourceText[1] = " meat Scrub";
 		}
+		//substitude for socializer house rescue quest
 		else if(_requiredResource == Resource.COIN)
 		{
+			_resourceText[0] = "Help me save my ";
+			_resourceText[1] = " house please";
+			stuffNeeded = 1;
 			checkForRequiredResource += Coin;
 		}
 		else if(_requiredResource == Resource.TREASURE)
@@ -42,6 +52,9 @@ public class NPC : MonoBehaviour {
 		}
 		else if(_requiredResource == Resource.WOOD)
 		{
+			_resourceText[0] = "Save my ";
+			_resourceText[1] = " life please";
+			stuffNeeded = 1;
 			checkForRequiredResource += Wood;
 		}
 	}
@@ -63,18 +76,23 @@ public class NPC : MonoBehaviour {
 
 	private void Coin()
 	{
-		if (_playerInventory.CoinAmount >= stuffNeeded)
+		if (!_questTarget.activeSelf)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.COIN, -stuffNeeded, Resource.COIN, goldReward);
+			_resourceText[0] = "Thank you ";
+			_resourceText[1] = " ";
+			GameEventManager.ExchangeForCurrency (Resource.COIN, 0, Resource.COIN, goldReward);
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}
 
 	private void Wood()
 	{
-		if (_playerInventory.WoodAmount >= stuffNeeded)
+		if (!_questTarget.activeSelf)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.WOOD, -stuffNeeded, Resource.COIN, goldReward);
+			_resourceText[0] = "Thank you ";
+			_resourceText[1] = " ";
+			GameEventManager.ExchangeForCurrency (Resource.WOOD, 0, Resource.WOOD, goldReward);
+			_happyExplosion.Play ();
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}
@@ -103,10 +121,16 @@ public class NPC : MonoBehaviour {
 		if(other.CompareTag("Player"))
 		{
 			Vector3 pos = transform.position;
-			pos.y = 2;
+			pos.y = 3;
 			textbox.transform.position = pos;
 			Text text = textbox.GetComponentInChildren<Text>();
-			text.text = _resourceText[0] + stuffNeeded + _resourceText[1];
+			if (_requiredResource == Resource.MEAT || _requiredResource == Resource.TREASURE) {
+				text.text = _resourceText [0] + stuffNeeded + _resourceText [1] + "      " + goldReward + " gold";
+			}
+			else
+			{
+				text.text = _resourceText [0] + _resourceText [1];
+			}
 			textbox.SetActive(true);
 			playerIsNearby = true;
 		}
