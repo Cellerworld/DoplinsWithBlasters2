@@ -17,9 +17,23 @@ public class Stats : MonoBehaviour {
 
 	[SerializeField]
 	private int _maxHealthPoints;
+    public int MaxHealthPoints
+    {
+        get
+        {
+            return _maxHealthPoints;
+        }
+    }
 
 	[SerializeField]
 	private int _currentHealthPoints;
+    public int CurrentHealthPoints
+    {
+        get
+        {
+            return _currentHealthPoints;
+        }
+    }
 
 	[SerializeField]
 	private int _movementSpeed;
