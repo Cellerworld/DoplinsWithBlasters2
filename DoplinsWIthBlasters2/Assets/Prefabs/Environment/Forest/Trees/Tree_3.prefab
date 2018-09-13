@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minWood: 3
   maxWood: 8
-  woodDrop: {fileID: 1231184830587054, guid: 7f106bf1e6d5184499bc20d57470b75e, type: 2}
+  woodDrop: {fileID: 1827081985973856, guid: df46ceff38d03f140ac997eb3559e3e0, type: 2}
+  stem: {fileID: 1827081985973856, guid: b0c4e3ee55c426d4080e3621de72ad68, type: 2}
 --- !u!136 &136583467483940414
 CapsuleCollider:
   m_ObjectHideFlags: 1
