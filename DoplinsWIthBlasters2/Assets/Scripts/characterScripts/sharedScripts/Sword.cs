@@ -14,7 +14,7 @@ public class Sword : MonoBehaviour {
         {
             Destroy(other.gameObject);
         }
-		if(isAttacking && other.tag == "Destructable" && other.tag == "Destructable2")
+		if(isAttacking && (other.tag == "Destructable" || other.tag == "Destructable2"))
         {
             Destroy(other.gameObject);
         }
