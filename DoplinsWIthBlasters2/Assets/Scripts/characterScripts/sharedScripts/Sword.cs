@@ -6,13 +6,14 @@ public class Sword : MonoBehaviour {
 
     public bool isAttacking = false;
 
-
+    [SerializeField]
+    Stats _playerStats;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isAttacking && other.tag == "Enemy")
+        if(isAttacking && (other.tag == "Enemy" || other.tag == "EnemyWave"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Stats>().ReceiveDamage(_playerStats.AttackPower);
         }
 		if(isAttacking && (other.tag == "Destructable" || other.tag == "Destructable2"))
         {

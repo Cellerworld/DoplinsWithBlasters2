@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 195861110561768290}
   - component: {fileID: 54221076096469472}
   - component: {fileID: 114185101760553506}
+  - component: {fileID: 114992570630431688}
   m_Layer: 0
   m_Name: EnemyUpdated
   m_TagString: Enemy
@@ -1605,6 +1606,21 @@ MonoBehaviour:
   rb: {fileID: 54221076096469472}
   _leftSword: {fileID: 114272448385367710}
   _rightSword: {fileID: 114153223193165652}
+--- !u!114 &114992570630431688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165266269378766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed4f12e8c03c5340af7f96fbb62fea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackPower: 5
+  _maxHealthPoints: 10
+  _currentHealthPoints: 10
+  _movementSpeed: 3
 --- !u!195 &195861110561768290
 NavMeshAgent:
   m_ObjectHideFlags: 1
