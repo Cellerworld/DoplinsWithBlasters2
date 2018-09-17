@@ -74,6 +74,14 @@ public class Stats : MonoBehaviour {
 		{
             Debug.Log("I died");
 			//set trigger for gameover event
+            if(gameObject.tag == "Player")
+            {
+                //set the trigger
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 		}
 	}
 
