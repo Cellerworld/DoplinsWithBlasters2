@@ -24,6 +24,7 @@ public class LittleBossIdleState : LittleBossState {
     {
         if(agent.GetDistanceBtwPlayerAndReturn() < agent.GetRange())
         {
+            Debug.Log("Player is in reach");
             agent.SetState(LittleBossFollowPlayerState.GetInstance());
         }
     }

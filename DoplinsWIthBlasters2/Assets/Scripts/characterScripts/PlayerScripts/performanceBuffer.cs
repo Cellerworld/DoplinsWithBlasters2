@@ -16,7 +16,6 @@ public class performanceBuffer : MonoBehaviour {
 	{
 		if(other.tag == "Destructable")
 		{
-			Debug.Log ("happens");
 			if (Random.Range (0, 100) < 10)
 			other.GetComponent<ParticleSystem> ().Play();
 		}

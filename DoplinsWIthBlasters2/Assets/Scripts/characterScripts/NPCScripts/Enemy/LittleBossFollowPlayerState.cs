@@ -24,12 +24,15 @@ public class LittleBossFollowPlayerState : LittleBossState {
     public override void Update(LittleBossAgent agent)
     {
         agent.SetPlayerAsDestination();
+        Debug.Log("Player still in reach");
         if(Vector3.Distance(agent.GetDestination(), agent.transform.position) < agent.GetAttackRange())
         {
+            Debug.Log("Attack");
             agent.SetState(LittleBossAttackState.GetInstance());
         }
         if(agent.GetDistanceBtwPlayerAndReturn() > agent.GetRange())
         {
+            Debug.Log("Return");
             agent.SetState(LittleBossReturnState.GetInstance());
         }
     }

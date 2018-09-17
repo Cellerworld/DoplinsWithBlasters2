@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LittleBossAgent : MonoBehaviour {
+public class LittleBossAgent : MonoBehaviour
+{
 
     [SerializeField]
     Player _player;
@@ -19,19 +20,25 @@ public class LittleBossAgent : MonoBehaviour {
     float _attackRange;
     [SerializeField]
     float _timeBtwAttacks;
-    [SerializeField]
     float _currentTimeBtwAttacks;
+    [SerializeField]
+    EnemyAttack _leftSword;
+    [SerializeField]
+    EnemyAttack _rightSword;
+    Rigidbody _rb;
 
     LittleBossState _state;
 
     private void Start()
     {
+        _rb = GetComponent<Rigidbody>();
         _state = LittleBossIdleState.GetInstance();
     }
 
     private void Update()
     {
-        _state.Update(this);
+        if (_state != null)
+            _state.Update(this);
     }
 
     private void OnDrawGizmos()
@@ -67,7 +74,10 @@ public class LittleBossAgent : MonoBehaviour {
 
     public void SetState(LittleBossState state)
     {
+        if(_state != null)
+        _state.Exit(this);
         _state = state;
+        _state.Enter(this);
     }
 
     public Vector3 GetDestination()
@@ -103,5 +113,47 @@ public class LittleBossAgent : MonoBehaviour {
     public void ActivateMoving()
     {
         _agent.isStopped = false;
+    }
+
+    public void Attack()
+    {
+        _currentTimeBtwAttacks = _timeBtwAttacks;
+    }
+
+    public void ResetAttack()
+    {
+        _currentTimeBtwAttacks = 0;
+    }
+
+    public void SetAnimation(bool isAttacking)
+    {
+        if(isAttacking == false)
+        {
+            _anim.SetBool("isAttacking", isAttacking);
+            _anim.SetBool("strongAttack", isAttacking);
+        }
+        else
+        {
+            if(Random.Range(0, 100) < 20)
+            {
+                _anim.SetBool("strongAttack", isAttacking);
+            }
+            else
+            {
+                _anim.SetBool("isAttacking", isAttacking);
+            }
+        }
+        _leftSword.enabled = isAttacking;
+        _rightSword.enabled = isAttacking;
+    }
+
+    public Rigidbody GetRigidbody()
+    {
+        return _rb;
+    }
+
+    public NavMeshAgent GetNavMeshAgent()
+    {
+        return _agent;
     }
 }

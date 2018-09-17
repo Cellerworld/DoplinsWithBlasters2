@@ -22,6 +22,7 @@ public class LittleBossReturnState : LittleBossState {
 
     public override void Update(LittleBossAgent agent)
     {
+        //Debug.Log(Vector3.Distance(agent.GetDestination(), agent.transform.position));
         if(Vector3.Distance(agent.GetDestination(), agent.transform.position) < 0.5f)
         {
             agent.SetState(LittleBossIdleState.GetInstance());
