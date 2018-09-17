@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class HUD : MonoBehaviour {
 
@@ -11,16 +13,16 @@ public class HUD : MonoBehaviour {
 	private int _treasureStock;
 
 	[SerializeField]
-	private Text _coinText;
+	private TextMeshProUGUI _coinText;
 
 	[SerializeField]
-	private Text _woodText;
+	private TextMeshProUGUI _woodText;
 
 	[SerializeField]
-	private Text _meatText;
+	private TextMeshProUGUI _meatText;
 
-	[SerializeField]
-	private Text _treasureText;
+//	[SerializeField]
+//	private TextMeshPro _treasureText;
 
 	private delegate void checkHudItems(Resource pResource, int pAmount);
 	private checkHudItems _checkHudItems;
@@ -35,7 +37,7 @@ public class HUD : MonoBehaviour {
 
 		_checkHudItems += updateCoin;
 		_checkHudItems += updateMeat;
-		_checkHudItems += updateTreasure;
+		//_checkHudItems += updateTreasure;
 		_checkHudItems += updateWood;
 	}
 	
@@ -68,7 +70,7 @@ public class HUD : MonoBehaviour {
 		if(pResource == Resource.COIN)
 		{
 			_coinStock += pAmount;
-			_coinText.text = "Coins: " + _coinStock;
+			_coinText.text =   _coinStock.ToString();
 		}
 	}
 
@@ -77,7 +79,7 @@ public class HUD : MonoBehaviour {
 		if(pResource == Resource.WOOD)
 		{
 			_woodStock += pAmount;
-			_woodText.text = "Wood: " + _woodStock;
+			_woodText.text =  _woodStock.ToString();
 		}
 	}
 
@@ -86,18 +88,18 @@ public class HUD : MonoBehaviour {
 		if(pResource == Resource.MEAT)
 		{
 			_meatStock += pAmount;
-			_meatText.text = "Meat: " + _meatStock;
+			_meatText.text = _meatStock.ToString();
 		}
 	}
 
-	private void updateTreasure(Resource pResource, int pAmount)
-	{
-		if(pResource == Resource.TREASURE)
-		{
-			_treasureStock += pAmount;
-
-			_treasureText.text = "Treasure: " + _treasureStock;
-		}
-	}
+//	private void updateTreasure(Resource pResource, int pAmount)
+//	{
+//		if(pResource == Resource.TREASURE)
+//		{
+//			_treasureStock += pAmount;
+//
+//			_treasureText.text = "Treasure: " + _treasureStock;
+//		}
+//	}
 }
 
