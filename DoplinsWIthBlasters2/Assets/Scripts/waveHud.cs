@@ -70,7 +70,7 @@ public class waveHud : MonoBehaviour {
 
 	private IEnumerator popUp()
 	{
-		yield return new WaitForSeconds (TimeUntilNextWave + WavetimeNeeded - 1);
+		yield return new WaitForSeconds (TimeUntilNextWave + WavetimeNeeded - 10);
 		Textpopup.SetActive (true);
 		yield return new WaitForSeconds (3);
 		Textpopup.SetActive (false);

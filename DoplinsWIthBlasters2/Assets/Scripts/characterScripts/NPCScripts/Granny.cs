@@ -91,13 +91,14 @@ public class Granny : MonoBehaviour {
 	{
 		upgrade [_upgradeLevel].transform.localScale = new Vector3 ( _originalScale.x, _originalScale.y*scaleOfBuilding, _originalScale.z);
 		upgrade[_upgradeLevel].SetActive(true);
+
 		while(scaleOfBuilding < 1)
 		{
 			scaleOfBuilding *= speedOfBuilding;
 			Mathf.Clamp01 (scaleOfBuilding);
 			_construction.transform.position = upgrade [_upgradeLevel].transform.position;
 			upgrade [_upgradeLevel].transform.localScale = new Vector3 ( _originalScale.x, _originalScale.y*scaleOfBuilding, _originalScale.z);
-			Instantiate (_construction);
+			Destroy(Instantiate (_construction, upgrade[_upgradeLevel].transform.position, upgrade[_upgradeLevel].transform.rotation), 1.5f);
 			yield return null;
 		}
 		scaleOfBuilding = 0.01f;

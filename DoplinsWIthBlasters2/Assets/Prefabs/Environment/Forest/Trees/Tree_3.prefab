@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 198525503219980776}
   - component: {fileID: 199556731824976180}
   - component: {fileID: 136583467483940414}
+  - component: {fileID: 65229976631294680}
   m_Layer: 0
   m_Name: Tree_3
   m_TagString: Destructable
@@ -88,6 +89,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427439576690898}
   m_Mesh: {fileID: 4300004, guid: d2ed07b61d4bda8478b6799f5d5d71aa, type: 3}
+--- !u!65 &65229976631294680
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427439576690898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.896868, y: 5.8004837, z: 2.7409084}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &114809097359720186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +116,7 @@ MonoBehaviour:
   maxWood: 8
   woodDrop: {fileID: 1827081985973856, guid: df46ceff38d03f140ac997eb3559e3e0, type: 2}
   stem: {fileID: 1827081985973856, guid: b0c4e3ee55c426d4080e3621de72ad68, type: 2}
+  _destroy: {fileID: 198267181250711792, guid: 078b93d67909b8e42a02037b46813dcc, type: 2}
 --- !u!136 &136583467483940414
 CapsuleCollider:
   m_ObjectHideFlags: 1
