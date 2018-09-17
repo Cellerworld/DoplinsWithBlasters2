@@ -66,12 +66,6 @@ public class NPC : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.E) && playerIsNearby)
 		{
-			if ((_requiredResource == Resource.WOOD || _requiredResource == Resource.COIN) && _questTarget == null)
-			{
-				_resourceText[0] = "Thanks. ";
-				_resourceText[1] = " Please help my Brothers.";
-				text.text = _resourceText [0] + _resourceText [1];
-			}
 			if (checkForRequiredResource != null) {
 				checkForRequiredResource ();
 			}
@@ -81,7 +75,12 @@ public class NPC : MonoBehaviour {
 		{
 			GameEventManager.ExchangeForCurrency (Resource.COIN, -0, Resource.COIN, 6000);
 		}
-
+		if ((_requiredResource == Resource.WOOD || _requiredResource == Resource.COIN) && _questTarget == null && playerIsNearby)
+		{
+			_resourceText[0] = "Thanks. ";
+			_resourceText[1] = " Please help my Brothers.";
+			text.text = _resourceText [0] + _resourceText [1];
+		}
 	}
 
 	private void Coin()
