@@ -17,9 +17,23 @@ public class Stats : MonoBehaviour {
 
 	[SerializeField]
 	private int _maxHealthPoints;
+    public int MaxHealthPoints
+    {
+        get
+        {
+            return _maxHealthPoints;
+        }
+    }
 
 	[SerializeField]
 	private int _currentHealthPoints;
+    public int CurrentHealthPoints
+    {
+        get
+        {
+            return _currentHealthPoints;
+        }
+    }
 
 	[SerializeField]
 	private int _movementSpeed;
@@ -60,6 +74,14 @@ public class Stats : MonoBehaviour {
 		{
             Debug.Log("I died");
 			//set trigger for gameover event
+            if(gameObject.tag == "Player")
+            {
+                //set the trigger
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 		}
 	}
 

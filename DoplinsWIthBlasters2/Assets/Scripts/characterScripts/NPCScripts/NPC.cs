@@ -16,13 +16,22 @@ public class NPC : MonoBehaviour {
 	[SerializeField]
 	private Resource _requiredResource;
 
+	//only needed for socializer quests
+	[SerializeField]
+	private GameObject _questTarget;
+	[SerializeField]
+	private ParticleSystem _happyExplosion;
+
 	private delegate void getResourceRequired ();
 	private getResourceRequired checkForRequiredResource;
 
+
 	private string[] _resourceText;
+	Text text;
 
 	private void Start()
 	{
+		text = textbox.GetComponentInChildren<Text>();
 		_resourceText = new string[2];
 		if(_requiredResource == Resource.MEAT)
 		{
@@ -30,8 +39,12 @@ public class NPC : MonoBehaviour {
 			_resourceText[0] = "Get me ";
 			_resourceText[1] = " meat Scrub";
 		}
+		//substitude for socializer house rescue quest
 		else if(_requiredResource == Resource.COIN)
 		{
+			_resourceText[0] = "Help me save my ";
+			_resourceText[1] = " house please";
+			stuffNeeded = 1;
 			checkForRequiredResource += Coin;
 		}
 		else if(_requiredResource == Resource.TREASURE)
@@ -42,6 +55,9 @@ public class NPC : MonoBehaviour {
 		}
 		else if(_requiredResource == Resource.WOOD)
 		{
+			_resourceText[0] = "Save my ";
+			_resourceText[1] = " life please";
+			stuffNeeded = 1;
 			checkForRequiredResource += Wood;
 		}
 	}
@@ -50,6 +66,12 @@ public class NPC : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.E) && playerIsNearby)
 		{
+			if ((_requiredResource == Resource.WOOD || _requiredResource == Resource.COIN) && _questTarget == null)
+			{
+				_resourceText[0] = "Thanks. ";
+				_resourceText[1] = " Please help my Brothers.";
+				text.text = _resourceText [0] + _resourceText [1];
+			}
 			if (checkForRequiredResource != null) {
 				checkForRequiredResource ();
 			}
@@ -59,22 +81,26 @@ public class NPC : MonoBehaviour {
 		{
 			GameEventManager.ExchangeForCurrency (Resource.COIN, -0, Resource.COIN, 6000);
 		}
+
 	}
 
 	private void Coin()
 	{
-		if (_playerInventory.CoinAmount >= stuffNeeded)
+		if (!_questTarget.activeSelf)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.COIN, -stuffNeeded, Resource.COIN, goldReward);
+			
+			GameEventManager.ExchangeForCurrency (Resource.COIN, 0, Resource.COIN, goldReward);
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}
 
 	private void Wood()
 	{
-		if (_playerInventory.WoodAmount >= stuffNeeded)
+		if (_questTarget == null)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.WOOD, -stuffNeeded, Resource.COIN, goldReward);
+			GameEventManager.ExchangeForCurrency (Resource.WOOD, 0, Resource.COIN, goldReward);
+			Instantiate (_happyExplosion, transform.position + new Vector3(0,1,0), Quaternion.identity).Play ();
+			StartCoroutine ("explode");
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}
@@ -103,10 +129,16 @@ public class NPC : MonoBehaviour {
 		if(other.CompareTag("Player"))
 		{
 			Vector3 pos = transform.position;
-			pos.y = 2;
+			pos.y = 3;
 			textbox.transform.position = pos;
-			Text text = textbox.GetComponentInChildren<Text>();
-			text.text = _resourceText[0] + stuffNeeded + _resourceText[1];
+
+			if (_requiredResource == Resource.MEAT || _requiredResource == Resource.TREASURE) {
+				text.text = _resourceText [0] + stuffNeeded + _resourceText [1] + "      " + goldReward + " gold";
+			}
+			else
+			{
+				text.text = _resourceText [0] + _resourceText [1];
+			}
 			textbox.SetActive(true);
 			playerIsNearby = true;
 		}
@@ -119,5 +151,17 @@ public class NPC : MonoBehaviour {
 			playerIsNearby = false;
 			textbox.SetActive(false);
 		}
+	}
+
+	private IEnumerator explode()
+	{
+		while(this.gameObject.transform.localScale.x > 0.05f)
+		{
+			this.gameObject.transform.position += new Vector3 (0, 0.05f, 0);
+			this.gameObject.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+			yield return new WaitForSeconds(0.10f);
+		}
+		yield return new WaitForSeconds (3.5f);
+		Destroy (this);
 	}
 }
