@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossChargeTownState : BossAbstractState {
+public class BossChargeTownState : BossAbstractState
+{
 
     private static BossChargeTownState _instance;
 
@@ -17,16 +18,23 @@ public class BossChargeTownState : BossAbstractState {
 
     public override void Enter(BossAgent agent)
     {
-        throw new System.NotImplementedException();
+        agent.SetBaseAsTarget();
     }
 
     public override void Update(BossAgent agent)
     {
-        throw new System.NotImplementedException();
+        if (agent.GetIsPlayerInRange())
+        {
+            agent.SetState(BossFollowPlayerState.GetInstance());
+        }
+        if (agent.GetIsBaseInAttackRange())
+        {
+            agent.SetState(BossAttackState.GetInstance());
+        }
     }
 
     public override void Exit(BossAgent agent)
     {
-        throw new System.NotImplementedException();
+
     }
 }

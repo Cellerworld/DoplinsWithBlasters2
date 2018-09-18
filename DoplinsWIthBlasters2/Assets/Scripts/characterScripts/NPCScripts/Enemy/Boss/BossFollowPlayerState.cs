@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossFollowPlayerState : BossAbstractState {
+public class BossFollowPlayerState : BossAbstractState
+{
 
     private static BossFollowPlayerState _instance;
 
@@ -17,16 +18,24 @@ public class BossFollowPlayerState : BossAbstractState {
 
     public override void Enter(BossAgent agent)
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void Update(BossAgent agent)
     {
-        throw new System.NotImplementedException();
+        agent.SetPlayerAsTarget();
+        if (agent.GetIsPlayerInAttackRange())
+        {
+            agent.SetState(BossAttackState.GetInstance());
+        }
+        if (!agent.GetIsPlayerInRange())
+        {
+            agent.SetState(BossChargeTownState.GetInstance());
+        }
     }
 
     public override void Exit(BossAgent agent)
     {
-        throw new System.NotImplementedException();
+
     }
 }
