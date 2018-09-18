@@ -101,6 +101,7 @@ MonoBehaviour:
   maxWood: 8
   woodDrop: {fileID: 1827081985973856, guid: df46ceff38d03f140ac997eb3559e3e0, type: 2}
   stem: {fileID: 1827081985973856, guid: b0c4e3ee55c426d4080e3621de72ad68, type: 2}
+  _destroy: {fileID: 198267181250711792, guid: 078b93d67909b8e42a02037b46813dcc, type: 2}
 --- !u!136 &136105204496396912
 CapsuleCollider:
   m_ObjectHideFlags: 1

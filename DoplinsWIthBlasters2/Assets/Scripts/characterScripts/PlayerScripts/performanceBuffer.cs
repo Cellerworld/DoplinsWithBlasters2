@@ -9,15 +9,17 @@ public class performanceBuffer : MonoBehaviour {
 
 	void Update()
 	{
-		this.transform.position = _player.transform.position;
+		this.transform.position = _player.transform.position + transform.up*2;
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "Destructable")
 		{
-			if (Random.Range (0, 100) < 10)
-			other.GetComponent<ParticleSystem> ().Play();
+			if (other.GetComponent<ParticleSystem> ().isStopped || !other.GetComponent<ParticleSystem> ().isPlaying) {
+					Debug.Log ("leaves will fall");
+					other.GetComponent<ParticleSystem> ().Play ();
+			}
 		}
 		if (other.tag == "EnemyWave")
 		{
@@ -32,7 +34,7 @@ public class performanceBuffer : MonoBehaviour {
 		{
 			if(other.GetComponent<ParticleSystem> ().isPlaying)
 			{
-			other.GetComponent<ParticleSystem> ().Stop();
+				other.GetComponent<ParticleSystem> ().Stop();
 			}
 		}
 		if (other.tag == "EnemyWave")

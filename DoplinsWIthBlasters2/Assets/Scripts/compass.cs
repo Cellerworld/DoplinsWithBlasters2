@@ -26,7 +26,6 @@ public class compass : MonoBehaviour {
 
 		float Rotation = Mathf.Rad2Deg * Mathf.Atan2 (b.y, b.x) - 90f;
 
-		Debug.Log (transform.localEulerAngles.z + "          " + Rotation);
 
 		if(this.transform.localEulerAngles.z != Rotation)
 		{
