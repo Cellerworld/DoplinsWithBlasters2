@@ -22,9 +22,9 @@ public class BossAgent : MonoBehaviour
     private float _currentTimeBtwAttacks;
     private Rigidbody _rb;
     [SerializeField]
-    private EnemyAttack _leftSword;
+	private MeshCollider _leftSword;
     [SerializeField]
-    private EnemyAttack _rightSword;
+	private MeshCollider _rightSword;
 
     private bool _isAttacking;
     private float _attackDuration;

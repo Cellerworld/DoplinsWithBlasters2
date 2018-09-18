@@ -92,7 +92,7 @@ public class Player : MonoBehaviour {
 
 	private IEnumerator Dash(float x, float z)
 	{
-		float Mulitplier = Mathf.Abs( x * _dashSpeedMultiplier);
+		float Mulitplier = Mathf.Max(Mathf.Abs(x), Mathf.Abs(z))* _dashSpeedMultiplier;
 		while (Mulitplier > 1) 
 		{
 			Mulitplier *= dashFallOff;

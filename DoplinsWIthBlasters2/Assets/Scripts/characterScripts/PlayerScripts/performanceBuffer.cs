@@ -16,6 +16,7 @@ public class performanceBuffer : MonoBehaviour {
 	{
 		if(other.tag == "Destructable")
 		{
+			Debug.Log ("leaves");
 			if (other.GetComponent<ParticleSystem> ().isStopped || !other.GetComponent<ParticleSystem> ().isPlaying) {
 					other.GetComponent<ParticleSystem> ().Play ();
 			}
@@ -25,7 +26,7 @@ public class performanceBuffer : MonoBehaviour {
 			if (other.GetComponent<EnemyAgent> ().enabled == false) {
 				other.GetComponent<EnemyAgent> ().enabled = true;
 			}
-			other.GetComponent<Rigidbody> ().isKinematic = false;
+			//other.GetComponent<Rigidbody> ().isKinematic = false;
 		}
 	}
 
@@ -42,8 +43,9 @@ public class performanceBuffer : MonoBehaviour {
 		{
 			if (other.GetComponent<EnemyAgent> ().enabled) {
 				other.GetComponent<EnemyAgent> ().enabled = false;
-				other.GetComponent<Rigidbody> ().isKinematic = true;
+
 			}
+			//other.GetComponent<Rigidbody> ().isKinematic = true;
 		}
 	}
 }

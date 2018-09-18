@@ -22,9 +22,9 @@ public class LittleBossAgent : MonoBehaviour
     float _timeBtwAttacks;
     float _currentTimeBtwAttacks;
     [SerializeField]
-    EnemyAttack _leftSword;
+	MeshCollider _leftSword;
     [SerializeField]
-    EnemyAttack _rightSword;
+	MeshCollider _rightSword;
     Rigidbody _rb;
 
     LittleBossState _state;

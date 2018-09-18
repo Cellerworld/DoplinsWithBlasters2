@@ -32,9 +32,9 @@ public class EnemyAgent : MonoBehaviour {
     private Rigidbody rb;
 
 	[SerializeField]
-	private EnemyAttack _leftSword;
+	private MeshCollider _leftSword;
 	[SerializeField]
-	private EnemyAttack _rightSword;
+	private MeshCollider _rightSword;
 
     private void OnEnable()
     {

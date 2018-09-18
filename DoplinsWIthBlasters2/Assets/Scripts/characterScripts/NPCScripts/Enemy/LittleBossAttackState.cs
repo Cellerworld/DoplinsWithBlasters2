@@ -31,14 +31,13 @@ public class LittleBossAttackState : LittleBossState {
         {
             agent.SetState(LittleBossReturnState.GetInstance());
         }
-        Debug.Log(Vector3.Distance(agent.transform.position, agent.GetDestination()));
-        if(Vector3.Distance(agent.transform.position, agent.GetDestination()) > agent.GetAttackRange())
+        else if(Vector3.Distance(agent.transform.position, agent.GetDestination()) > agent.GetAttackRange())
         {
             agent.SetState(LittleBossFollowPlayerState.GetInstance());
         }
-        if(agent.GetCurrentTimeBtwAttacks() < 0)
+        else if(agent.GetCurrentTimeBtwAttacks() < 0)
         {
-            agent.Attack();
+			agent.SetState (GetInstance ());
         }
         else
         {
