@@ -23,7 +23,6 @@ public class PatrolState : AbstractState
 
     public override void Update(EnemyAgent agent)
     {
-        Debug.Log(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position));
         if(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position) < 2.5f)
         {
             agent.UpdateWaypoint();

@@ -1621,6 +1621,8 @@ MonoBehaviour:
   _maxHealthPoints: 10
   _currentHealthPoints: 10
   _movementSpeed: 3
+  _deathParticle: {fileID: 1507759108316190, guid: 9148e1e85d443ce448e340445df7bf5b,
+    type: 2}
 --- !u!195 &195861110561768290
 NavMeshAgent:
   m_ObjectHideFlags: 1

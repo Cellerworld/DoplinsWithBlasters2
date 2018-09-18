@@ -3358,6 +3358,8 @@ MonoBehaviour:
   _maxHealthPoints: 10
   _currentHealthPoints: 10
   _movementSpeed: 3
+  _deathParticle: {fileID: 1580976317786894, guid: 7ac739fe2fdc56743a12ebebc67fda2e,
+    type: 2}
 --- !u!114 &114979969609808748
 MonoBehaviour:
   m_ObjectHideFlags: 1
