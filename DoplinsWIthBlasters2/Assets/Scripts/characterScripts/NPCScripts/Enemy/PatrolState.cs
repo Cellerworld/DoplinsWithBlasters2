@@ -29,7 +29,7 @@ public class PatrolState : AbstractState
             agent.UpdateWaypoint();
         }
         RaycastHit hit;
-        if (Physics.SphereCast(agent.transform.position + new Vector3(0.5f, 0.5f, 0.5f), 0.5f, agent.transform.forward, out hit, agent.GetFollowRange()))
+        if (Physics.SphereCast(agent.transform.position + new Vector3(0.5f, 0f, 0.5f), 0.5f, agent.transform.forward, out hit, agent.GetFollowRange()))
         {
             if (hit.collider.tag == "Player")
             {
