@@ -27,11 +27,19 @@ public class NPC : MonoBehaviour {
 
 
 	private string[] _resourceText;
-	Text text;
+
+	Text[] text;
+
+	[SerializeField]
+	Image[] images = new Image[2];
+	[SerializeField]
+	Sprite[] sprites = new Sprite[2];
 
 	private void Start()
 	{
-		text = textbox.GetComponentInChildren<Text>();
+		text = textbox.GetComponentsInChildren<Text> ();
+
+
 		_resourceText = new string[2];
 		if(_requiredResource == Resource.MEAT)
 		{
@@ -78,17 +86,19 @@ public class NPC : MonoBehaviour {
 		if ((_requiredResource == Resource.WOOD || _requiredResource == Resource.COIN) && _questTarget == null && playerIsNearby)
 		{
 			_resourceText[0] = "Thanks. ";
-			_resourceText[1] = " Please help my Brothers.";
-			text.text = _resourceText [0] + _resourceText [1];
+			_resourceText[1] = " Please help my Brothers aswell.";
+			text[0].text = _resourceText [0] + _resourceText [1];
 		}
 	}
 
 	private void Coin()
 	{
-		if (!_questTarget.activeSelf)
+		if (_questTarget == null)
 		{
 			
 			GameEventManager.ExchangeForCurrency (Resource.COIN, 0, Resource.COIN, goldReward);
+			Instantiate (_happyExplosion, transform.position + new Vector3(0,1,0), Quaternion.identity).Play ();
+			StartCoroutine ("explode");
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}
@@ -127,16 +137,25 @@ public class NPC : MonoBehaviour {
 	{
 		if(other.CompareTag("Player"))
 		{
+			if (sprites [0] != null) {
+				images [0].sprite = sprites [0];
+				images [1].sprite = sprites [1];
+			}
+
 			Vector3 pos = transform.position;
 			pos.y = 3;
 			textbox.transform.position = pos;
 
 			if (_requiredResource == Resource.MEAT || _requiredResource == Resource.TREASURE) {
-				text.text = _resourceText [0] + stuffNeeded + _resourceText [1] + "      " + goldReward + " gold";
+				text[1].text = "NEEDED";
+				text[0].text = "*" + stuffNeeded;
+				text[2].text = "REWARD";
+				text[3].text = "*" + goldReward;
+				text[4].text = "TRADE";
 			}
 			else
 			{
-				text.text = _resourceText [0] + _resourceText [1];
+				text[0].text = _resourceText [0] + _resourceText [1];
 			}
 			textbox.SetActive(true);
 			playerIsNearby = true;

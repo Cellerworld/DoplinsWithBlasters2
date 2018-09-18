@@ -9,7 +9,7 @@ public class performanceBuffer : MonoBehaviour {
 
 	void Update()
 	{
-		this.transform.position = _player.transform.position + transform.up*2;
+		this.transform.position = _player.transform.position + transform.up*1.5f;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -17,13 +17,14 @@ public class performanceBuffer : MonoBehaviour {
 		if(other.tag == "Destructable")
 		{
 			if (other.GetComponent<ParticleSystem> ().isStopped || !other.GetComponent<ParticleSystem> ().isPlaying) {
-					Debug.Log ("leaves will fall");
 					other.GetComponent<ParticleSystem> ().Play ();
 			}
 		}
 		if (other.tag == "EnemyWave")
 		{
-			other.GetComponent<EnemyAgent> ().enabled = true;
+			if (other.GetComponent<EnemyAgent> ().enabled == false) {
+				other.GetComponent<EnemyAgent> ().enabled = true;
+			}
 			other.GetComponent<Rigidbody> ().isKinematic = false;
 		}
 	}
