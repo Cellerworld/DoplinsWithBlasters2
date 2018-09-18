@@ -45,13 +45,23 @@ public class Stats : MonoBehaviour {
         }
     }
 
+    [SerializeField]
+    GameObject _deathParticle;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	public void IncreaseAttack(int pAttackBonus)
+    private void OnApplicationQuit()
+    {
+        _deathParticle = null;
+    }
+
+    private void OnDestroy()
+    {
+        if (_deathParticle != null)
+        {
+            Destroy(Instantiate(_deathParticle, transform.position, Quaternion.identity), 1f);
+        }
+    }
+
+    public void IncreaseAttack(int pAttackBonus)
 	{
 		_attackPower += pAttackBonus;
 	}

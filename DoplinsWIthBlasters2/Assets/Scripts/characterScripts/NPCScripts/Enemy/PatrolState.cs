@@ -23,12 +23,12 @@ public class PatrolState : AbstractState
 
     public override void Update(EnemyAgent agent)
     {
-        if(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position) < 1f)
+        if(Vector3.Distance(agent.GetNavMeshAgent().destination, agent.transform.position) < 2.5f)
         {
             agent.UpdateWaypoint();
         }
         RaycastHit hit;
-        if (Physics.SphereCast(agent.transform.position + new Vector3(0.5f, 0.5f, 0.5f), 0.5f, agent.transform.forward, out hit, agent.GetFollowRange()))
+        if (Physics.SphereCast(agent.transform.position + new Vector3(0.5f, 0f, 0.5f), 0.5f, agent.transform.forward, out hit, agent.GetFollowRange()))
         {
             if (hit.collider.tag == "Player")
             {
