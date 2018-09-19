@@ -104,9 +104,21 @@ public class Stats : MonoBehaviour {
 				//set trigger for gameover event
 				if (gameObject.tag == "Player") {
 					//set the trigger
-				} else {
-					Destroy (gameObject);
 				}
+                else if(gameObject.tag == "Enemy" || gameObject.tag == "EnemyWave")
+                {
+                    GetComponent<BoxCollider>().enabled = false;
+                    transform.GetChild(0).gameObject.SetActive(false);
+                    AudioSource source = GetComponent<AudioSource>();
+                    source.clip = FindObjectOfType<EnemyAudio>().GetEnemyDeathSound();
+                    source.Play();
+                    
+					Destroy (gameObject, 0.5f);
+				}
+                else
+                {
+                    Destroy(gameObject);
+                }
 			}
 		}
 	}
