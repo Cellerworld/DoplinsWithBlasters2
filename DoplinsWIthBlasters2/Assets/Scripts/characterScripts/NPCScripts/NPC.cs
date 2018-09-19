@@ -98,6 +98,7 @@ public class NPC : MonoBehaviour {
 		if (_questTarget == null)
 		{
 			_isFinished = false;
+			GameEventManager.helpedSocializer = true;
 			GameEventManager.ExchangeForCurrency (Resource.COIN, 0, Resource.COIN, goldReward[0]);
 			Instantiate (_happyExplosion, transform.position + new Vector3(0,1,0), Quaternion.identity).Play ();
 			StartCoroutine ("explode");
@@ -109,6 +110,7 @@ public class NPC : MonoBehaviour {
 	{
 		if (_questTarget == null)
 		{
+			GameEventManager.helpedSocializer = true;
 			_isFinished = false;
 			GameEventManager.ExchangeForCurrency (Resource.WOOD, 0, Resource.COIN, goldReward[0]);
 			Instantiate (_happyExplosion, transform.position + new Vector3(0,1,0), Quaternion.identity).Play ();
