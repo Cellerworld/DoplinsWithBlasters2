@@ -103,6 +103,11 @@ public class Stats : MonoBehaviour {
 				_isInvincible = true;
 				_invincibleTime = 1.5f;
 			}
+            if(gameObject.tag == "Enemy" || gameObject.tag == "EnemyWave")
+            {
+                _isInvincible = true;
+                _invincibleTime = 0.4f;
+            }
 
 			if (_currentHealthPoints <= 0) {
 				Debug.Log ("I died");
