@@ -7,7 +7,7 @@ public class NPC : MonoBehaviour {
 
 	public int stuffNeeded;
 	public int[] goldReward;
-	private int RewardLevel;
+	private int RewardLevel = 0;
 	public float range;
 	public GameObject textbox;
 	private bool playerIsNearby = false;
@@ -154,7 +154,7 @@ public class NPC : MonoBehaviour {
 				text[1].text = "NEEDED";
 				text[0].text = "*" + stuffNeeded;
 				text[2].text = "REWARD";
-				text[3].text = "*" + goldReward;
+				text[3].text = "*" + goldReward[RewardLevel];
 				text[4].text = "TRADE";
 			}
 			else

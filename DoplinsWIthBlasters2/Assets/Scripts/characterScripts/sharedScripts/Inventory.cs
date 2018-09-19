@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
+	[SerializeField]
+	private GameObject chest;
 
 	private int _woodAmount;
 	public int WoodAmount
@@ -111,6 +113,13 @@ public class Inventory : MonoBehaviour {
 		if(pResource == Resource.TREASURE)
 		{
 			_treasureAmount += pAmount;
+			if (_treasureAmount > 0) {
+				chest.SetActive (true);
+			}
+			else
+			{
+				chest.SetActive (false);
+			}
 		}
 	}
 

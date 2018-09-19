@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Granny : MonoBehaviour {
 
+
 	[SerializeField]
 	private int[] goldNeeded = new int[8];
 	[SerializeField]
@@ -132,13 +133,26 @@ public class Granny : MonoBehaviour {
 			CleanupUpgrade [2].SetActive (false);
 		}
 
+		foreach (Transform trans in upgrade [_upgradeLevel].GetComponentsInChildren<Transform>()) 
+		{
+			Debug.Log (trans.tag);
+			//Destroy (Instantiate (_construction, upgrade [_upgradeLevel].transform.position, upgrade [_upgradeLevel].transform.rotation), 1.5f);
+			if (trans.tag == "MainBuilding") 
+			{
+				Debug.Log ("instantiate particle");
+				Destroy (Instantiate (_construction, trans.position, trans.rotation), 2.9f);
+			}
+		}
+
 		while(scaleOfBuilding < 1)
 		{
 			scaleOfBuilding *= speedOfBuilding;
 			Mathf.Clamp01 (scaleOfBuilding);
 			_construction.transform.position = upgrade [_upgradeLevel].transform.position;
 			upgrade [_upgradeLevel].transform.localScale = new Vector3 ( _originalScale.x, _originalScale.y*scaleOfBuilding, _originalScale.z);
-			Destroy(Instantiate (_construction, upgrade[_upgradeLevel].transform.position, upgrade[_upgradeLevel].transform.rotation), 1.5f);
+
+
+
 			yield return null;
 		}
 		scaleOfBuilding = 0.01f;

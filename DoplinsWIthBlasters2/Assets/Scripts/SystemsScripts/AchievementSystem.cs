@@ -20,7 +20,7 @@ public class AchievementSystem : MonoBehaviour {
 
 	private int gatheredTreasures= 0;
 	[SerializeField]
-	private int[] _treasureGoal  = new int[5];
+	private int[] _treasureGoal  = new int[3];
 	private int _tresureLevel = 0;
 
 	private int gatheredKills= 0;
