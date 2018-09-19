@@ -3408,9 +3408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed4f12e8c03c5340af7f96fbb62fea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackPower: 5
-  _maxHealthPoints: 10
-  _currentHealthPoints: 10
+  _attackPower: 15
+  _maxHealthPoints: 60
+  _currentHealthPoints: 60
   _movementSpeed: 3
   _deathParticle: {fileID: 1580976317786894, guid: 7ac739fe2fdc56743a12ebebc67fda2e,
     type: 2}
