@@ -84,6 +84,15 @@ public class playAnimationEvents : MonoBehaviour {
 	private void SlashImpact()
 	{
 		_slashImpact.Play ();
+		this.GetComponentInChildren<BoxCollider> ().size.Scale( new Vector3(50, 1, 2.5f));
+		StartCoroutine (shrink ());
+	}
+
+	private IEnumerator shrink()
+	{
+		yield return new WaitForSeconds (35f);
+		this.GetComponentInChildren<BoxCollider> ().size.Scale( new Vector3(0.02f, 1, 0.4f));
+
 	}
 
 	private void MoveImpact()

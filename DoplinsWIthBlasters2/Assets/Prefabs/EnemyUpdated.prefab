@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 114992570630431688}
   m_Layer: 0
   m_Name: EnemyUpdated
-  m_TagString: Enemy
+  m_TagString: EnemyWave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,7 +634,7 @@ Transform:
   m_GameObject: {fileID: 1165266269378766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 71, y: 1.02, z: -17.6}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4383488828075648}
   m_Father: {fileID: 0}
@@ -1481,7 +1481,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1604,8 +1604,8 @@ MonoBehaviour:
   _followRange: 10
   _anim: {fileID: 95791327716522010}
   rb: {fileID: 54221076096469472}
-  _leftSword: {fileID: 114272448385367710}
-  _rightSword: {fileID: 114153223193165652}
+  _leftSword: {fileID: 64231635505238634}
+  _rightSword: {fileID: 64542576185270806}
 --- !u!114 &114992570630431688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1621,6 +1621,8 @@ MonoBehaviour:
   _maxHealthPoints: 10
   _currentHealthPoints: 10
   _movementSpeed: 3
+  _deathParticle: {fileID: 1507759108316190, guid: 9148e1e85d443ce448e340445df7bf5b,
+    type: 2}
 --- !u!195 &195861110561768290
 NavMeshAgent:
   m_ObjectHideFlags: 1

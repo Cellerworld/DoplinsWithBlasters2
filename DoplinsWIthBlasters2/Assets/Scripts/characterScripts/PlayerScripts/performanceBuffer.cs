@@ -9,21 +9,24 @@ public class performanceBuffer : MonoBehaviour {
 
 	void Update()
 	{
-		this.transform.position = _player.transform.position;
+		this.transform.position = _player.transform.position + transform.up*1.5f;
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "Destructable")
 		{
-			Debug.Log ("happens");
-			if (Random.Range (0, 100) < 10)
-			other.GetComponent<ParticleSystem> ().Play();
+			Debug.Log ("leaves");
+			if (other.GetComponent<ParticleSystem> ().isStopped || !other.GetComponent<ParticleSystem> ().isPlaying) {
+					other.GetComponent<ParticleSystem> ().Play ();
+			}
 		}
 		if (other.tag == "EnemyWave")
 		{
-			other.GetComponent<EnemyAgent> ().enabled = true;
-			other.GetComponent<Rigidbody> ().isKinematic = false;
+			if (other.GetComponent<EnemyAgent> ().enabled == false) {
+				other.GetComponent<EnemyAgent> ().enabled = true;
+			}
+			//other.GetComponent<Rigidbody> ().isKinematic = false;
 		}
 	}
 
@@ -33,15 +36,16 @@ public class performanceBuffer : MonoBehaviour {
 		{
 			if(other.GetComponent<ParticleSystem> ().isPlaying)
 			{
-			other.GetComponent<ParticleSystem> ().Stop();
+				other.GetComponent<ParticleSystem> ().Stop();
 			}
 		}
 		if (other.tag == "EnemyWave")
 		{
 			if (other.GetComponent<EnemyAgent> ().enabled) {
 				other.GetComponent<EnemyAgent> ().enabled = false;
-				other.GetComponent<Rigidbody> ().isKinematic = true;
+
 			}
+			//other.GetComponent<Rigidbody> ().isKinematic = true;
 		}
 	}
 }

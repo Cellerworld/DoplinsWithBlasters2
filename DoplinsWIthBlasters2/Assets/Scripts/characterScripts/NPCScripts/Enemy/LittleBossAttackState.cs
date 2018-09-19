@@ -17,35 +17,39 @@ public class LittleBossAttackState : LittleBossState {
 
     public override void Enter(LittleBossAgent agent)
     {
-
+        agent.GetRigidbody().velocity = Vector3.zero;
+        agent.GetNavMeshAgent().isStopped = true;
+        agent.SetAnimation(true);
+        agent.ResetAttack();
+        agent.Attack();
     }
 
     public override void Update(LittleBossAgent agent)
     {
-        if(agent.GetDistanceBtwPlayerAndReturn() > agent.GetRange())
+        agent.SetPlayerAsDestination();
+        if (agent.GetDistanceBtwPlayerAndReturn() > agent.GetRange())
         {
             agent.SetState(LittleBossReturnState.GetInstance());
         }
-        if(Vector3.Distance(agent.transform.position, agent.GetDestination()) > agent.GetAttackRange())
+        else if(Vector3.Distance(agent.transform.position, agent.GetDestination()) > agent.GetAttackRange())
         {
             agent.SetState(LittleBossFollowPlayerState.GetInstance());
         }
-        if(agent.GetCurrentTimeBtwAttacks() < 0)
+        else if(agent.GetCurrentTimeBtwAttacks() < 0)
         {
-            //attack
+			agent.SetState (GetInstance ());
         }
         else
         {
             agent.UpdateAttackTime();
         }
-        //if time to attack do attack 
-        //wait until time to attack
     
-        //EXPLOSION!!
+        //insert EXPLOSION!!
     }
 
     public override void Exit(LittleBossAgent agent)
     {
-        
+        agent.GetNavMeshAgent().isStopped = false;
+        agent.SetAnimation(false);
     }
 }
