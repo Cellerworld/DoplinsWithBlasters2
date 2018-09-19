@@ -96,8 +96,13 @@ public class Stats : MonoBehaviour {
 	public void ReceiveDamage(int damage)
 	{
 		if (!_isInvincible) {
-			_isInvincible = true;
+			
 			_currentHealthPoints -= damage;
+
+			if (gameObject.tag == "Player") {
+				_isInvincible = true;
+				_invincibleTime = 1.5f;
+			}
 
 			if (_currentHealthPoints <= 0) {
 				Debug.Log ("I died");

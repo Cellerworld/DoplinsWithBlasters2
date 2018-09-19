@@ -48,6 +48,11 @@ public class GameEventManager : MonoBehaviour {
 	public static Achievment upgradedAchievment = Achievment.NONE;
 	public static int upgradedAchievmentLevel;
 
+
+	public delegate void SocializerHelped();
+	public static event SocializerHelped OnSocializerHelp;
+	public static bool helpedSocializer = false;
+
 	//player and interacted npc are intrested in this
 	//first amount negative number, second amountpositive number
 	public delegate void GiveMaterial(Resource pResourceGiven, int pAmountGiven, Resource pResourceTaken, int pAmountTaken);
@@ -87,6 +92,7 @@ public class GameEventManager : MonoBehaviour {
 		_eventCheck += OnWavespawnEvent;
 		_eventCheck += OnEndGameEvent;
 		_eventCheck += OnGiveMaterialEvent;
+		_eventCheck += OnHelpSocializer;
 	}
 
 	// Update is called once per frame
@@ -199,6 +205,18 @@ public class GameEventManager : MonoBehaviour {
 			{
 				OnGiveMaterial (_givenResource, _givenAmount, _takenResource, _takenAmount );
 				_givenResource = Resource.NONE;
+			}
+		}
+	}
+
+	private void OnHelpSocializer()
+	{
+		if(OnSocializerHelp != null)
+		{
+			if (helpedSocializer)
+			{
+				OnSocializerHelp();
+				helpedSocializer = false;
 			}
 		}
 	}

@@ -143,7 +143,7 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [1]) {
 			_audioSrc[1].PlayOneShot(_slash2Sound);
-			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+			if (Random.Range (0, 100) < 10 && !_audioSrc[2].isPlaying) {
 				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 6)]);
 			}
 		}
@@ -154,7 +154,7 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [2]) {
 			_audioSrc[1].PlayOneShot(_slash3Sound);
-			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+			if (Random.Range (0, 100) < 10 && !_audioSrc[2].isPlaying) {
 				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 6)]);
 			}
 		}
@@ -165,7 +165,7 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [3]) {
 			_audioSrc[1].PlayOneShot(_slash4Sound);
-			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+			if (Random.Range (0, 100) < 10 && !_audioSrc[2].isPlaying) {
 				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 6)]);
 			}
 		}
@@ -176,7 +176,7 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [4]) {
 			_audioSrc[1].PlayOneShot(_slash4Sound);
-			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+			if (Random.Range (0, 100) < 10 && !_audioSrc[2].isPlaying) {
 				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 5)]);
 			}
 		}
