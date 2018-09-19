@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 446a32b8c10e942459439416efe17978
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Skater Girls Rock
+  fontNames:
+  - Skater Girls Rock menu
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: df92f006d22623a4e90b96136bb62171, type: 3}
+  - {fileID: 12800000, guid: 8ddc953956ac603458ffebe4e0db0897, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,16 +9,36 @@ public class AchievementSystem : MonoBehaviour {
 	private improve _improve;
 
 	private int gatheredWood = 0;
-	private int _woodGoal = 3;
+	[SerializeField]
+	private int[] _woodGoal = new int[5];
+	private int _woodLevel = 0;
 
 	private int gatheredCoins= 0;
-	private int _coinGoal = 5;
+	[SerializeField]
+	private int[] _coinGoal  = new int[5];
+	private int _coinLevel = 0;
 
 	private int gatheredTreasures= 0;
-	private int _treasureGoal = 1;
+	[SerializeField]
+	private int[] _treasureGoal  = new int[5];
+	private int _tresureLevel = 0;
 
 	private int gatheredKills= 0;
-	private int _killGoal = 4;
+	[SerializeField]
+	private int[] _killGoal  = new int[4];
+	private int _killLevel = 0;
+
+	private int gatheredScoializers= 0;
+	[SerializeField]
+	private int[] _socializerGoal  = new int[4];
+	private int _socialLevel = 0;
+
+	private int gatheredAchievments= 0;
+	[SerializeField]
+	private int[] _achievmentGoals  = new int[3];
+	private int _achieveLevel = 0;
+
+	private bool _gotTen;
 
 	private Dictionary<Achievment, int> _achievmentLevel = new Dictionary<Achievment,int>();
 
@@ -68,10 +88,11 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.WOOD)
 		{
 			gatheredWood += pAmount;
-			if (gatheredWood >= _woodGoal)
+			if (gatheredWood >= _woodGoal[_achievmentLevel[Achievment.WOODSMAN]])
 			{
-				_woodGoal *= 2;
+				//_woodGoal *= 2;
 				//Set Trigger for Achievment up
+				gatheredAchievments++;
 				_achievmentLevel[Achievment.WOODSMAN]++;
 				GameEventManager.upgradedAchievmentLevel = _achievmentLevel [Achievment.WOODSMAN];
 				GameEventManager.upgradedAchievment = Achievment.WOODSMAN;
@@ -85,10 +106,11 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.COIN)
 		{
 			gatheredCoins += pAmount;
-			if (gatheredCoins >= _coinGoal)
+			if (gatheredCoins >= _coinGoal[_achievmentLevel[Achievment.BANKER]])
 			{
-				_coinGoal *= 2;
+				//_coinGoal *= 2;
 				//Set Trigger for Achievment up
+				gatheredAchievments++;
 				_achievmentLevel[Achievment.BANKER]++;
 				GameEventManager.upgradedAchievmentLevel = _achievmentLevel [Achievment.BANKER];
 				GameEventManager.upgradedAchievment = Achievment.BANKER;
@@ -102,10 +124,11 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.TREASURE)
 		{
 			gatheredTreasures += pAmount;
-			if (gatheredTreasures >= _treasureGoal)
+			if (gatheredTreasures >= _treasureGoal[_achievmentLevel[Achievment.TREASUREHUNTER]])
 			{
-				_treasureGoal *= 2;
+				//_treasureGoal *= 2;
 				//Set Trigger for Achievment up
+				gatheredAchievments++;
 				_achievmentLevel[Achievment.TREASUREHUNTER]++;
 				GameEventManager.upgradedAchievmentLevel = _achievmentLevel [Achievment.TREASUREHUNTER];
 				GameEventManager.upgradedAchievment = Achievment.TREASUREHUNTER;
@@ -119,11 +142,12 @@ public class AchievementSystem : MonoBehaviour {
 		if (pResource == Resource.MEAT)
 		{
 			gatheredKills += pAmount;
-			if (gatheredKills >= _killGoal)
+			if (gatheredKills >= _killGoal[_achievmentLevel[Achievment.KILLER]])
 			{
-				_killGoal *= 2;
+				//_killGoal *= 2;
 				//Display Achievment
 				//Set Trigger for Achievment up
+				gatheredAchievments++;
 				_achievmentLevel[Achievment.KILLER]++;
 				GameEventManager.upgradedAchievmentLevel = _achievmentLevel [Achievment.KILLER];
 				GameEventManager.upgradedAchievment = Achievment.KILLER;
@@ -136,5 +160,24 @@ public class AchievementSystem : MonoBehaviour {
 	public int getAchievementLevel(Achievment pAchievment)
 	{
 		return _achievmentLevel[pAchievment];
+	}
+
+	public int getMeat()
+	{
+		return gatheredKills;
+	}
+
+	public int getWood()
+	{
+		return gatheredWood;
+	}
+	public int getTreasure()
+	{
+		return gatheredTreasures;
+	}
+
+	public int getAchievments()
+	{
+		return gatheredAchievments;
 	}
 }

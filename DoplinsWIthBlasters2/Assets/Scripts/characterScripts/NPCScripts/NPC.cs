@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class NPC : MonoBehaviour {
 
 	public int stuffNeeded;
-	public int goldReward;
+	public int[] goldReward;
+	private int RewardLevel;
 	public float range;
 	public GameObject textbox;
 	private bool playerIsNearby = false;
@@ -25,6 +26,7 @@ public class NPC : MonoBehaviour {
 	private delegate void getResourceRequired ();
 	private getResourceRequired checkForRequiredResource;
 
+	private bool _isFinished = true;
 
 	private string[] _resourceText;
 
@@ -72,7 +74,7 @@ public class NPC : MonoBehaviour {
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.E) && playerIsNearby)
+		if(Input.GetKeyDown(KeyCode.E) && playerIsNearby && _isFinished)
 		{
 			if (checkForRequiredResource != null) {
 				checkForRequiredResource ();
@@ -81,7 +83,7 @@ public class NPC : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.L) && playerIsNearby)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.COIN, -0, Resource.COIN, 6000);
+			GameEventManager.ExchangeForCurrency (Resource.WOOD, 6000, Resource.COIN, 6000);
 		}
 		if ((_requiredResource == Resource.WOOD || _requiredResource == Resource.COIN) && _questTarget == null && playerIsNearby)
 		{
@@ -95,8 +97,8 @@ public class NPC : MonoBehaviour {
 	{
 		if (_questTarget == null)
 		{
-			
-			GameEventManager.ExchangeForCurrency (Resource.COIN, 0, Resource.COIN, goldReward);
+			_isFinished = false;
+			GameEventManager.ExchangeForCurrency (Resource.COIN, 0, Resource.COIN, goldReward[0]);
 			Instantiate (_happyExplosion, transform.position + new Vector3(0,1,0), Quaternion.identity).Play ();
 			StartCoroutine ("explode");
 			//player.MakeExchange(stuffNeeded, goldReward);
@@ -107,7 +109,8 @@ public class NPC : MonoBehaviour {
 	{
 		if (_questTarget == null)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.WOOD, 0, Resource.COIN, goldReward);
+			_isFinished = false;
+			GameEventManager.ExchangeForCurrency (Resource.WOOD, 0, Resource.COIN, goldReward[0]);
 			Instantiate (_happyExplosion, transform.position + new Vector3(0,1,0), Quaternion.identity).Play ();
 			StartCoroutine ("explode");
 			//player.MakeExchange(stuffNeeded, goldReward);
@@ -119,7 +122,7 @@ public class NPC : MonoBehaviour {
 		if (_playerInventory.MeatAmount >= stuffNeeded)
 		{
 
-			GameEventManager.ExchangeForCurrency (Resource.MEAT, -stuffNeeded, Resource.COIN, goldReward);
+			GameEventManager.ExchangeForCurrency (Resource.MEAT, -stuffNeeded, Resource.COIN, goldReward[0]);
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}
@@ -128,7 +131,8 @@ public class NPC : MonoBehaviour {
 	{
 		if (_playerInventory.Treasure >= stuffNeeded)
 		{
-			GameEventManager.ExchangeForCurrency (Resource.TREASURE, -stuffNeeded, Resource.COIN, goldReward);
+			GameEventManager.ExchangeForCurrency (Resource.TREASURE, -stuffNeeded, Resource.COIN, goldReward[RewardLevel]);
+			RewardLevel++;
 			//player.MakeExchange(stuffNeeded, goldReward);
 		}
 	}

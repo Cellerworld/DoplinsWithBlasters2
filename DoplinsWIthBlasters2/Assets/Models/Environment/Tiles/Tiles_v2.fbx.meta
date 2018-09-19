@@ -26,7 +26,12 @@ ModelImporter:
     4300002: Tile_Corner
     4300004: Tile_Main_Gradual
     4300006: Tile_Main_Gradual1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 7e71aa1a35217d643bcf08e5c821ea9c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

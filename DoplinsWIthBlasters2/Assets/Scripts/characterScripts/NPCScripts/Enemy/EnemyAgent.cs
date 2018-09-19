@@ -165,8 +165,8 @@ public class EnemyAgent : MonoBehaviour {
     public void SetAnimation(bool isAttacking)
     {
         _anim.SetBool("isAttacking", isAttacking);
-		_leftSword.enabled = isAttacking;
-		_rightSword.enabled = isAttacking;
+//		_leftSword.enabled = isAttacking;
+//		_rightSword.enabled = isAttacking;
     }
 
     public Rigidbody GetRigidbody()

@@ -143,6 +143,7 @@ public class Granny : MonoBehaviour {
 		}
 		scaleOfBuilding = 0.01f;
 		_upgradeLevel++;
+		yield return new WaitForSeconds (2);
 		_is_ready = true;
 	}
 

@@ -15,6 +15,8 @@ public class waveHud : MonoBehaviour {
 
 	private bool _arrived = false;
 
+	private bool secondWaveAndOn = false;
+
 	[SerializeField]
 	private GameObject Textpopup;
 
@@ -70,8 +72,14 @@ public class waveHud : MonoBehaviour {
 
 	private IEnumerator popUp()
 	{
-		yield return new WaitForSeconds (TimeUntilNextWave + WavetimeNeeded - 10);
+		float multiplier = 1;
+		if (secondWaveAndOn)
+		{
+			multiplier = 0;
+		}
+		yield return new WaitForSeconds (TimeUntilNextWave + (WavetimeNeeded *multiplier) - 10);
 		Textpopup.SetActive (true);
+		secondWaveAndOn = true;
 		yield return new WaitForSeconds (3);
 		Textpopup.SetActive (false);
 	}

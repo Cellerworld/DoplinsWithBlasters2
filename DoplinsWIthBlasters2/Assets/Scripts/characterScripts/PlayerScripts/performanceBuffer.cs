@@ -25,6 +25,7 @@ public class performanceBuffer : MonoBehaviour {
 		{
 			if (other.GetComponent<EnemyAgent> ().enabled == false) {
 				other.GetComponent<EnemyAgent> ().enabled = true;
+
 			}
 			//other.GetComponent<Rigidbody> ().isKinematic = false;
 		}
@@ -43,7 +44,6 @@ public class performanceBuffer : MonoBehaviour {
 		{
 			if (other.GetComponent<EnemyAgent> ().enabled) {
 				other.GetComponent<EnemyAgent> ().enabled = false;
-
 			}
 			//other.GetComponent<Rigidbody> ().isKinematic = true;
 		}

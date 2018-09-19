@@ -20,6 +20,9 @@ public class playAnimationEvents : MonoBehaviour {
 //	[SerializeField]
 //	private Animator _slashDownBoxes;
 
+	[SerializeField]
+	private Animator chest;
+
 	private AudioSource[] _audioSrc;
 
 	[SerializeField]
@@ -39,6 +42,9 @@ public class playAnimationEvents : MonoBehaviour {
 	private AudioClip _slash4Sound;
 	[SerializeField]
 	private AudioClip _slash5Sound;
+
+	[SerializeField]
+	private AudioClip[] _slashVoices;
 
 	private bool[] playedSound = new bool[5]{false, false , false , false, false};
 
@@ -79,6 +85,12 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		_isTrailing = !_isTrailing;
 		_trail.SetActive (_isTrailing);
+	}
+
+	private void TrailOff()
+	{
+		_isTrailing = false;
+		_trail.SetActive (false);
 	}
 
 	private void SlashImpact()
@@ -122,6 +134,7 @@ public class playAnimationEvents : MonoBehaviour {
 		playedSound[4] = false;
 		if (!playedSound [0]) {
 			_audioSrc[1].PlayOneShot (_slash1Sound);
+			_audioSrc [2].PlayOneShot (_slashVoices[Random.Range(0,6)]);
 		}
 		playedSound[0] = true;
 	}
@@ -130,6 +143,9 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [1]) {
 			_audioSrc[1].PlayOneShot(_slash2Sound);
+			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 6)]);
+			}
 		}
 		playedSound[1] = true;
 	}
@@ -138,6 +154,9 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [2]) {
 			_audioSrc[1].PlayOneShot(_slash3Sound);
+			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 6)]);
+			}
 		}
 		playedSound[2] = true;
 	}
@@ -146,6 +165,9 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [3]) {
 			_audioSrc[1].PlayOneShot(_slash4Sound);
+			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 6)]);
+			}
 		}
 		playedSound[3] = true;
 	}
@@ -154,7 +176,40 @@ public class playAnimationEvents : MonoBehaviour {
 	{
 		if (!playedSound [4]) {
 			_audioSrc[1].PlayOneShot(_slash4Sound);
+			if (Random.Range (0, 100) < 50 && !_audioSrc[2].isPlaying) {
+				_audioSrc [2].PlayOneShot (_slashVoices [Random.Range (0, 5)]);
+			}
 		}
 		playedSound[4] = true;
+	}
+
+	private void slash1Begin()
+	{
+		chest.Play("Slash_1_Chest");
+	}
+	private void slash2Begin()
+	{
+		chest.Play("Slash_2_Chest");
+	}
+	private void slash3Begin()
+	{
+		chest.Play("Slash_3_Chest");
+	}
+	private void slash4Begin()
+	{
+		chest.Play("Slash_4_Chest");
+	}
+
+	private void moveBegin()
+	{
+		chest.Play("Walk_Chest");
+	}
+	private void dashBegin()
+	{
+		chest.Play("Dash_Chest");
+	}
+	private void idleBegin()
+	{
+		chest.Play ("Idle_Chest");
 	}
 }
