@@ -9,6 +9,29 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/pascalalalal.unity
     guid: 6b55aa56a48323d47a66b6efbbec1db4
+=======
+    path: Assets/Scenes/Menus/Start_menu.unity
+    guid: 0ead63508a788ff43a2a4e3add011960
+  - enabled: 1
+    path: Assets/Scenes/Menus/Achievements_menu.unity
+    guid: 18592226cabfdea43886242f0776f445
+  - enabled: 1
+    path: Assets/Scenes/Menus/Achievements_menu_end game.unity
+    guid: cd259a11750c3d344b34a9bfa396d861
+  - enabled: 1
+    path: Assets/Scenes/Menus/Difficulty_menu.unity
+    guid: 4e43f68109a8450439789537e98df094
+  - enabled: 1
+    path: Assets/Scenes/Menus/Pouse_menu.unity
+    guid: aefb5ee2a8fccba42945beb56167d5bb
+  - enabled: 1
+    path: Assets/Scenes/Menus/Stats_screen.unity
+    guid: 0e0c4c76752eca540b889b39fab9bd7c
+  - enabled: 1
+    path: Assets/Scenes/Menus/Credits_screen.unity
+    guid: 1509eda9de572514eb020b1ec828294e
+>>>>>>> 0d9d363c1093b40d22d2c312329300f0f265009f
   m_configObjects: {}
