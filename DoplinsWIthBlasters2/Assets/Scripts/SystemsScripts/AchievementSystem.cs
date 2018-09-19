@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+using TMPro;
 
 public class AchievementSystem : MonoBehaviour {
 
@@ -40,10 +43,15 @@ public class AchievementSystem : MonoBehaviour {
 
 	private bool _gotTen;
 
+	[SerializeField]
+	private GameObject[] images;
+
 	private Dictionary<Achievment, int> _achievmentLevel = new Dictionary<Achievment,int>();
 
 	// Use this for initialization
 	void Start () {
+		DontDestroyOnLoad (this);
+
 		_improve += AddCoin;
 		_improve += AddKill;
 		_improve += AddTreasure;
@@ -90,6 +98,7 @@ public class AchievementSystem : MonoBehaviour {
 			gatheredWood += pAmount;
 			if (gatheredWood >= _woodGoal[_achievmentLevel[Achievment.WOODSMAN]])
 			{
+				StartCoroutine (ShowAchivement (images[3]));
 				//_woodGoal *= 2;
 				//Set Trigger for Achievment up
 				gatheredAchievments++;
@@ -108,6 +117,7 @@ public class AchievementSystem : MonoBehaviour {
 			gatheredCoins += pAmount;
 			if (gatheredCoins >= _coinGoal[_achievmentLevel[Achievment.BANKER]])
 			{
+				StartCoroutine (ShowAchivement (images[0]));
 				//_coinGoal *= 2;
 				//Set Trigger for Achievment up
 				gatheredAchievments++;
@@ -126,6 +136,7 @@ public class AchievementSystem : MonoBehaviour {
 			gatheredTreasures += pAmount;
 			if (gatheredTreasures >= _treasureGoal[_achievmentLevel[Achievment.TREASUREHUNTER]])
 			{
+				StartCoroutine (ShowAchivement (images[2]));
 				//_treasureGoal *= 2;
 				//Set Trigger for Achievment up
 				gatheredAchievments++;
@@ -144,6 +155,7 @@ public class AchievementSystem : MonoBehaviour {
 			gatheredKills += pAmount;
 			if (gatheredKills >= _killGoal[_achievmentLevel[Achievment.KILLER]])
 			{
+				StartCoroutine (ShowAchivement (images[1]));
 				//_killGoal *= 2;
 				//Display Achievment
 				//Set Trigger for Achievment up
@@ -154,6 +166,50 @@ public class AchievementSystem : MonoBehaviour {
 
 			}
 		}
+
+	}
+
+	private void AddSocializer(Resource pResource , int pAmount)
+	{
+		
+			gatheredKills += pAmount;
+		if (gatheredScoializers >= _socializerGoal[_achievmentLevel[Achievment.SOCIALIZER]])
+			{
+				StartCoroutine (ShowAchivement (images[0]));
+				//_killGoal *= 2;
+				//Display Achievment
+				//Set Trigger for Achievment up
+				gatheredAchievments++;
+				_achievmentLevel[Achievment.KILLER]++;
+				GameEventManager.upgradedAchievmentLevel = _achievmentLevel [Achievment.KILLER];
+				GameEventManager.upgradedAchievment = Achievment.KILLER;
+
+			}
+
+
+	}
+
+	private IEnumerator ShowAchivement(GameObject pImage)
+	{
+		Image rImage = pImage.GetComponent<Image> ();
+		TextMeshProUGUI text = pImage.GetComponentInChildren<TextMeshProUGUI> ();
+		text.alpha = 1;
+		rImage.color += new Color (0, 0, 0, 1);
+		pImage.transform.localScale = new Vector3 (0.01f, 0.01f, 0.01f);
+		pImage.SetActive (true);
+		while (pImage.transform.localScale.x < 1.7f)
+		{
+			pImage.transform.localScale *= 1.05f;
+			yield return null;
+		}
+
+		while (rImage.color.a > 0.05f) 
+		{
+			rImage.color *= new Color (1, 1, 1, 0.99f);
+			text.alpha = text.alpha * 0.99f;
+			yield return null;
+		}
+		pImage.SetActive (false);
 
 	}
 
