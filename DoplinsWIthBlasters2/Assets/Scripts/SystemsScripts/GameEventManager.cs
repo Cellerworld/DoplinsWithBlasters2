@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Timers;
 
 public enum Resource {NONE, WOOD, COIN, POTION, MEGAPOTION, BERRY, MEAT, TREASURE};
-public enum Achievment {NONE, WOODSMAN, BANKER, HULK, BUFFER, HEALER, KILLER, TREASUREHUNTER};
+public enum Achievment {NONE, WOODSMAN, BANKER, HULK, BUFFER, HEALER, KILLER, TREASUREHUNTER, SOCIALIZER};
 
 public class GameEventManager : MonoBehaviour {
 
