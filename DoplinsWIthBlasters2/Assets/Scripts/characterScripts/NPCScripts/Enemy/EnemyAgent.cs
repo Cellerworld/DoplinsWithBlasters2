@@ -36,6 +36,8 @@ public class EnemyAgent : MonoBehaviour {
 	[SerializeField]
 	private MeshCollider _rightSword;
 
+    private AudioSource _source;
+
     private void OnEnable()
     {
         //find player if player == null
@@ -43,6 +45,7 @@ public class EnemyAgent : MonoBehaviour {
         {
             _player = FindObjectOfType<Player>();
         }
+        _source = GetComponent<AudioSource>();
 
         if(_base == null)
         {
@@ -140,6 +143,8 @@ public class EnemyAgent : MonoBehaviour {
     public void Attack()
     {
         _currentTimeBtwAttacks = _timeBtwAttacks;
+        _source.clip = FindObjectOfType<EnemyAudio>().GetEnemyAttackSound();
+        _source.Play();
     }
 
     public void ResetAttack()
