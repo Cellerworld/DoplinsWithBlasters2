@@ -1,12 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Timers;
 
 //Monitors all stats of the object and changes them according to input
 public class Stats : MonoBehaviour {
 
+
+	private bool _isInvincible = false;
+	private float _invincibleTime = 0;
+
 	[SerializeField]
 	private int _attackPower;
+
+	void Update()
+	{
+		if (_invincibleTime > 0) {
+			_invincibleTime -= Time.deltaTime;
+		}
+		else
+		{
+			_isInvincible = false;
+		}
+	}
+
 	public int AttackPower
 	{
 		get
@@ -78,20 +95,19 @@ public class Stats : MonoBehaviour {
 
 	public void ReceiveDamage(int damage)
 	{
-		_currentHealthPoints -= damage;
+		if (!_isInvincible) {
+			_isInvincible = true;
+			_currentHealthPoints -= damage;
 
-		if(_currentHealthPoints <= 0) 
-		{
-            Debug.Log("I died");
-			//set trigger for gameover event
-            if(gameObject.tag == "Player")
-            {
-                //set the trigger
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+			if (_currentHealthPoints <= 0) {
+				Debug.Log ("I died");
+				//set trigger for gameover event
+				if (gameObject.tag == "Player") {
+					//set the trigger
+				} else {
+					Destroy (gameObject);
+				}
+			}
 		}
 	}
 

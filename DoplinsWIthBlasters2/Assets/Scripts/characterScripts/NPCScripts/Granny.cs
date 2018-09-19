@@ -62,6 +62,7 @@ public class Granny : MonoBehaviour {
 		{
 			_is_ready = false;
 			GameEventManager.UpgradeCost = goldNeeded[_upgradeLevel];
+			GameEventManager.ExchangeForCurrency (Resource.WOOD, -woodNeeded [_upgradeLevel], Resource.COIN, 0);
 			//player.RemoveGold(goldNeeded);
 			UpgradeTown();
 		}

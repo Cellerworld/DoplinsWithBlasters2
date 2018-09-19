@@ -16,6 +16,7 @@ public class waveHud : MonoBehaviour {
 	private bool _arrived = false;
 
 	private bool secondWaveAndOn = false;
+	float multiplier = 1;
 
 	[SerializeField]
 	private GameObject Textpopup;
@@ -72,7 +73,7 @@ public class waveHud : MonoBehaviour {
 
 	private IEnumerator popUp()
 	{
-		float multiplier = 1;
+		
 		if (secondWaveAndOn)
 		{
 			multiplier = 0;
